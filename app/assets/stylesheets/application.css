@@ -1,0 +1,55 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+div.new{
+	margin: 15px 15px 15px 35px;  	
+}
+
+div.new a{
+	color: rgb(0,153,153);
+}
+
+h1.title{
+	padding: 15px 15px 15px 35px;
+	
+}
+
+table.metryczka{
+	margin: 25px 30px 25px 30px;
+	padding: 15px 0px 15px 0px;	
+	border-top: 3px solid rgb(103,153,253);
+	border-bottom: 3px solid rgb(103,153,253);
+}
+
+th{
+	padding: 5px 10px 18px 15px;	
+	font-size: 15px;
+}
+
+tr td{
+	margin: 5px 0px 5px 0px;
+	padding: 15px 15px 15px 15px;
+	border: 1px solid black;
+}
+
+td.del a{
+	color: rgb(237,32,36);
+}
+
+td.show a{
+	color: rgb(103,153,253);
+}
+
+td.ed a{
+	color: rgb(0,153,153);
+	}

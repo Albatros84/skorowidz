@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  client: MyString
+  project_type: MyString
+  highrise: MyString
+  skydrive: MyString
+
+two:
+  name: MyString
+  client: MyString
+  project_type: MyString
+  highrise: MyString
+  skydrive: MyString
