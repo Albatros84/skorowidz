@@ -1,8 +1,10 @@
+	<h1>Szczegóły projektu</h1>
 <p id="notice"><%= notice %></p>
 <h3>Metryczka </h3>
+<div class="metr">
 <p>
   <b>Nazwa projektu:</b>
-  <%= @project.name %>
+  <span class="inner"><%= @project.name %></span>
 </p>
 
 <p>
@@ -29,7 +31,10 @@
   <b>Basecamp:</b>
   <%= @project.basecamp%>
 </p>
-<h3>Liczba uczestników </h3>
+</div>
+
+<h3>Sprawy organizacyjne </h3>
+<div class="org">
 <p>
   <b>Liczba uczestników:</b>
   <%= @project.participant_count%>
@@ -84,8 +89,10 @@
   <b>Zakwaterowanie:</b>
   <%= @project.accomodation%>
 </p>
+</div>
+
 <h3>Kwestie Merytoryczne </h3>
-<p>
+<div class="mer"><p>
   <b>Zakwaterowanie:</b>
   <%= @project.accomodation%>
 </p>
@@ -117,7 +124,10 @@
   <b>Pozostałe informacje (np. rodzaj raportu) :</b>
   <%= @project.other_information%>
 </p>
+</div>
+
 <h3>Zespół </h3>
+<div class="zespol">
 <p>
   <b>Główny trener prowadzący:</b>
   <%= @project.leading_head_coach%>
@@ -134,6 +144,9 @@
   <b>Asystenci:</b>
   <%= @project.assistants%>
 </p>
+</div>
+<h3> Przed projektem </h3>
+<div class="przedPro">
 <p>
   <b>Agenda spotkania:</b>
   <%= @project.agenda_of_meeting%>
@@ -150,7 +163,10 @@
   <b>Zaproszenie, dla uczestników:</b>
   <%= @project.invitation_for_participants%>
 </p>
+</div>
+
 <h3> Po spotkaniu </h3>
+<div class="poSpotkaniu">
 <p>
   <b>Cel i pozostałe oczekiwania klienta (w jakim stopniu zostały zrealizowane, jakie były sytuacje trudne):</b>
   <%= @project.purpose_and_other_expectations%>
@@ -191,6 +207,8 @@
   <b>Uwagi odnośnie organizacji:</b>
   <%= @project.notes_on_organization%>
 </p>
-
+</div>
+<div class="links">
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+</div>

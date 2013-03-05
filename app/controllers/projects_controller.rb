@@ -2,8 +2,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
-
+    @projects = Project.all    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
@@ -35,6 +34,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    @Rozm=105;
   end
 
   # POST /projects

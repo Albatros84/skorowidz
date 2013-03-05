@@ -11,6 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+.name{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
 div.new{
 	margin: 15px 15px 15px 35px;  	
 }
