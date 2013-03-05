@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
-
+<h3>Metryczka </h3>
 <p>
-  <b>Name:</b>
+  <b>Nazwa projektu:</b>
   <%= @project.name %>
 </p>
 
 <p>
-  <b>Client:</b>
+  <b>Klient:</b>
   <%= @project.client %>
 </p>
 
 <p>
-  <b>Project type:</b>
+  <b>Rodzaj projektu:</b>
   <%= @project.project_type %>
 </p>
 
@@ -29,12 +29,168 @@
   <b>Basecamp:</b>
   <%= @project.basecamp%>
 </p>
-
+<h3>Liczba uczestników </h3>
 <p>
   <b>Liczba uczestników:</b>
   <%= @project.participant_count%>
 </p>
 
+<p>
+  <b>Gra:</b>
+  <%= @project.game%>
+</p>
+
+<p>
+  <b>Podział na grupy:</b>
+  <%= @project.groups_division%>
+</p>
+
+<p>
+  <b>Liczba sal:</b>
+  <%= @project.number_of_rooms%>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%= @project.date_of_game%>
+</p>
+
+<p>
+  <b>Godziny:</b>
+  <%= @project.hour_duration%>
+</p>
+
+<p>
+  <b>Lokalizacja:</b>
+  <%= @project.localization%>
+</p>
+
+<p>
+  <b>Osoby kontaktowe od strony organizacyjnej (klient):</b>
+  <%= @project.contacts_client%>
+</p>
+
+<p>
+  <b>Osoby kontaktowe od strony organizacyjnej (hotel):</b>
+  <%= @project.contacts_hotel%>
+</p>
+
+<p>
+  <b>Szczegóły dotyczące transportu:</b>
+  <%= @project.transport_details%>
+</p>
+
+<p>
+  <b>Zakwaterowanie:</b>
+  <%= @project.accomodation%>
+</p>
+<h3>Kwestie Merytoryczne </h3>
+<p>
+  <b>Zakwaterowanie:</b>
+  <%= @project.accomodation%>
+</p>
+<p>
+  <b>Cel uzgodniony z klientem:</b>
+  <%= @project.target_agreed_with_customer%>
+</p>
+<p>
+  <b>Pozostałe oczekiwania klienta:</b>
+  <%= @project.other_expectations%>
+</p>
+<p>
+  <b>Temat i kontekst:</b>
+  <%= @project.subject%>
+</p>
+<p>
+  <b>Profil uczestników:</b>
+  <%= @project.profile_of_participants%>
+</p>
+<p>
+  <b>Osoba kontaktowa po stronie klienta:</b>
+  <%= @project.contact_person_on_client_side%>
+</p>
+<p>
+  <b>Gospodarz lub sponsor spotkania:</b>
+  <%= @project.host_of_the_meeting%>
+</p>
+<p>
+  <b>Pozostałe informacje (np. rodzaj raportu) :</b>
+  <%= @project.other_information%>
+</p>
+<h3>Zespół </h3>
+<p>
+  <b>Główny trener prowadzący:</b>
+  <%= @project.leading_head_coach%>
+</p>
+<p>
+  <b>Drugi_trener:</b>
+  <%= @project.second_coach%>
+</p>
+<p>
+  <b>Trainee w ramach CPD:</b>
+  <%= @project.CPD_trainee%>
+</p>
+<p>
+  <b>Asystenci:</b>
+  <%= @project.assistants%>
+</p>
+<p>
+  <b>Agenda spotkania:</b>
+  <%= @project.agenda_of_meeting%>
+</p>
+<p>
+  <b>Podział obowiązków grupy projektowej:</b>
+  <%= @project.resposibilities_division%>
+</p>
+<p>
+  <b>Podsumowanie po grze oraz program warsztatu:</b>
+  <%= @project.after_game_summary%>
+</p>
+<p>
+  <b>Zaproszenie, dla uczestników:</b>
+  <%= @project.invitation_for_participants%>
+</p>
+<h3> Po spotkaniu </h3>
+<p>
+  <b>Cel i pozostałe oczekiwania klienta (w jakim stopniu zostały zrealizowane, jakie były sytuacje trudne):</b>
+  <%= @project.purpose_and_other_expectations%>
+</p>
+<p>
+  <b>Uczestnicy i krótka charakterystyka z podziałem na grupy:</b>
+  <%= @project.participants_short_description_in_groups%>
+</p>
+<p>
+  <b>Przebieg szkolenia oraz gry:</b>
+  <%= @project.course_of_training%>
+</p>
+<p>
+  <b>Ustalenia z klientem uzgodnione podczas projektu oraz jego sugestie:</b>
+  <%= @project.on_fly_findings_and_suggestions%>
+</p>
+<p>
+  <b>Ocena realizacji projektu przez zespół projektowy:</b>
+  <%= @project.project_evaluation%>
+</p>
+<p>
+  <b>Wnioski dotyczące potencjału sprzedażowego:</b>
+  <%= @project.proposals_for_sales_potential%>
+</p>
+<p>
+  <b>Merytoryka oraz program warsztatu, gra vs cel, podsumowanie po grze:</b>
+  <%= @project.merytoryka%>
+</p>
+<p>
+  <b>Przeprowadzenie i podsumowanie gry:</b>
+  <%= @project.conduct_and_summary_of_game%>
+</p>
+<p>
+  <b>Uwagi odnośnie materiałów:</b>
+  <%= @project.notes_on_materials%>
+</p>
+<p>
+  <b>Uwagi odnośnie organizacji:</b>
+  <%= @project.notes_on_organization%>
+</p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
