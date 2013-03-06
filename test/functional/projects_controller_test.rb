@@ -9,10 +9,15 @@ class ProjectsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:projects)
+    assert_select "title", "Skorowidz"
+    assert_select "table tr th","Nazwa"
+    assert_select "table"
+    assert_template 
   end
 
   test "should get new" do
     get :new
+    assert_select "title", "Skorowidz"
     assert_response :success
   end
 
@@ -20,23 +25,44 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_difference('Project.count') do
       post :create, project: { client: @project.client, highrise: @project.highrise, name: @project.name, project_type: @project.project_type, skydrive: @project.skydrive }
     end
-
+    assert_equal "Project was successfully created.", flash[:notice]
     assert_redirected_to project_path(assigns(:project))
+    assert_response :redirect
   end
 
   test "should show project" do
-    get :show, id: @project
+    get :show, id: @project    
     assert_response :success
+    assert_select "table.tabl tr td.ins", @project.name 
+    assert_select "table.tabl tr td.head", "Nazwa projektu:" 
+    assert_select "table tr td"
+    assert_select "form", false, "this page shouldnt contain any forms"    
+    assert_select "table tr td"
+    assert_select "table.tabl", true
+    assert_select "td.head", true
+    assert_select "td.ins", true
+    tables=css_select("table")
+    tables.each do |table|
+      assert_select "tr"
+    end
+    
+    trs=css_select("tr")
+    trs.each do |tr|
+      assert_select "td"
+    end
+    
   end
 
   test "should get edit" do
     get :edit, id: @project
     assert_response :success
+    assert_select "form", true
   end
 
   test "should update project" do
     put :update, id: @project, project: { client: @project.client, highrise: @project.highrise, name: @project.name, project_type: @project.project_type, skydrive: @project.skydrive }
     assert_redirected_to project_path(assigns(:project))
+    assert_response :redirect
   end
 
   test "should destroy project" do

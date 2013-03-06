@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130304155204) do
+ActiveRecord::Schema.define(:version => 20130306151534) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(:version => 20130304155204) do
     t.text     "conduct_and_summary_of_game"
     t.text     "notes_on_materials"
     t.text     "notes_on_organization"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.string   "role"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "welcomes", :force => true do |t|
