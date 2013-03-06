@@ -2,8 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-p span.inner{
-  
+table.tabl{
+  width: 880px;
+  border-style: none;
+}
+table.tabl tr td.head{
+  border-style: none; 
+  width: 150px; 
+  padding: 5px 35px 5px 15px;
+  margin: 0px;
+}
+table.tabl tr td.ins{
+  border-style: none; 
+  float: right;
+  padding: 5px 35px 5px 35px;
+  margin: 0px;
 }
 
 .pakowacz{
