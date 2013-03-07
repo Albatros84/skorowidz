@@ -113,6 +113,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   jquery-rails
+  mail
   mysql2
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
