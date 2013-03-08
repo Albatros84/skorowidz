@@ -42,7 +42,6 @@ class UsersController < ApplicationController
     (0..length).map {chars.sample}.join
   end
   
-  
    def show
     @user = User.find(params[:id])
     @user.password=random_pass
