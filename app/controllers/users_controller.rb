@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        UserMailer.edited_profile(@user).deliver
+        UserMailer.recover_password(@user).deliver
         format.html { redirect_to root_url, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
@@ -36,13 +36,22 @@ class UsersController < ApplicationController
   def index
     @users = User.all       
   end
-
+  
+ def random_pass(length=8)
+    chars = [*('A'..'Z'), *('a'..'z'), *(0..9)]
+    (0..length).map {chars.sample}.join
+  end
+  
+  
    def show
     @user = User.find(params[:id])
-    UserMailer.recover_password(user).deliver
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @user }
+    @user.password=random_pass
+     if @user.save
+      UserMailer.recover_password(@user).deliver
+      respond_to do |format|
+        format.html { redirect_to root_url, notice: 'Password was sent to your email.' }
+        format.json { render json: @user }
+     end    
     end
   end
 
