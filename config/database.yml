@@ -15,7 +15,7 @@ development:
   database: skorowidz_development
   pool: 5
   username: root
-  password: kamikadze84
+  password: 
   socket: /opt/lampp/var/mysql/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: skorowidz_test
   pool: 5
   username: root
-  password: kamikadze84
+  password: 
   socket: /opt/lampp/var/mysql/mysql.sock
 
 production:

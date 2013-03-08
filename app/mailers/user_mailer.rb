@@ -5,4 +5,15 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(:to => "#{user.role} <#{user.email}>", :subject => "Registered")
   end
+  
+  def edited_profile(user)
+    @user=user
+    mail(:to => "#{user.role} <#{user.email}>", :subject => "Profile edited")
+  end
+  
+  def recover_password(user)
+    @user=user
+    mail(:to => "#{user.role} <#{user.email}>", :subject => "Your password")
+  end
+  
 end

@@ -9,6 +9,7 @@ Skorowidz::Application.routes.draw do
  
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
+  get "recover_password" => "users#recover_password", :as =>"recover_password"
   get "sign_up" => "users#new", :as => "sign_up"
   #root :to => 'projects#index'
   #root :to => "users#new"

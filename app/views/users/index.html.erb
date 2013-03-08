@@ -1,0 +1,9 @@
+<h1>Odzyskaj hasło</h1>
+<table>
+<% @users.each do |user| %>
+  <tr>
+    <td><span class="name"><%= user.email %></span></td>
+    <td class="show"><%= link_to 'Pokaż', user %></td>   
+  </tr>
+<% end %>
+</table>
