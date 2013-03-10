@@ -1,4 +1,17 @@
 Skorowidz::Application.routes.draw do
+  
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  #root :to => 'projects#index'
+  #root :to => "home#index"
+   root :to => "sessions#new" 
+  resources :users
+  resources :sessions
+  resources :password_resets
+
+  get "password_resets/new"
+  ##########################################################
   get "sessions/new"
 
   get "users/new"
@@ -6,6 +19,8 @@ Skorowidz::Application.routes.draw do
   resources :projects
 
   resources :welcomes
+  
+  resources :secret
  
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"

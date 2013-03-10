@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password_hash, :password_salt, :role
+  before_create { generate_token(:auth_token) }
   
+  attr_accessible :email, :password_hash, :password_salt, :role
+  #has_secure_password
   attr_accessible :email, :password, :password_confirmation
   
   attr_accessor :password
@@ -12,9 +14,9 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   
   validates_format_of :email, :with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i, :on => :create
-  
-  def self.authenticate(email, password)
-    user = find_by_email(email)
+    #def self.authenticate(email, password)
+  def authenticate(email, password)
+    user = User.find_by_email(email)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       user
     else
@@ -29,4 +31,18 @@ class User < ActiveRecord::Base
     end
   end
   
+  
+
+def send_password_reset
+  generate_token(:password_reset_token)
+  self.password_reset_sent_at = Time.zone.now
+  save!
+  UserMailer.password_reset(self).deliver
+end
+
+def generate_token(column)
+  begin
+    self[column] = SecureRandom.urlsafe_base64
+  end while User.exists?(column => self[column])
+end  
 end
