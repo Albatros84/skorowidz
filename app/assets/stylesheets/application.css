@@ -11,6 +11,9 @@
  *= require_self
  *= require_tree .
  */
+table {
+	width: 920px;
+}
 
 .name{
 	font-weight: bold;
@@ -35,6 +38,7 @@ table.metryczka{
 	padding: 15px 0px 15px 0px;	
 	border-top: 3px solid rgb(103,153,253);
 	border-bottom: 3px solid rgb(103,153,253);
+	
 }
 
 th{
@@ -59,3 +63,4 @@ td.show a{
 td.ed a{
 	color: rgb(0,153,153);
 	}
+
