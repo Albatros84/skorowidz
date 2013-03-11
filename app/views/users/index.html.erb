@@ -1,9 +1,17 @@
-<h1>Odzyskaj hasło</h1>
+	<div class="links_top">
+<%= link_to 'Back to projects', projects_path %>
+</div>
+<h1>Spis oraz tworzenie nowych użytkowników</h1>
 <table>
-<% @users.each do |user| %>
+<tr>
+	<th>Email:</th>
+	<th>Rola użytkownika:</th>
+	</tr><% @users.each do |user| %>
   <tr>
     <td><span class="name"><%= user.email %></span></td>
-    <td class="show"><%= link_to 'Odzyskaj hasło', user %></td>   
+    <td><span class="name"><%= user.role %></span></td>
+    <td class="show"><%= link_to 'Edytuj użytkownika', edit_user_path(user) %></td>   
   </tr>
 <% end %>
 </table>
+<p><%= link_to 'Create user', new_user_path %></p>

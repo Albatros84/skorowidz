@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    #   before_filter :require_login, :except=>[:index]
+       before_filter :require_admin_login
       
   def new
     @user = User.new
@@ -45,11 +45,9 @@ class UsersController < ApplicationController
   
    def show
     @user = User.find(params[:id])
-    @user.password=random_pass
      if @user.save
-      UserMailer.recover_password(@user).deliver
       respond_to do |format|
-        format.html { redirect_to root_url, notice: 'Password was sent to your email.' }
+        format.html #show.html.erb
         format.json { render json: @user }
      end    
     end
