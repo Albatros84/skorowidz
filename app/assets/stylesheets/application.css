@@ -63,4 +63,9 @@ td.show a{
 td.ed a{
 	color: rgb(0,153,153);
 	}
-
+/*To powinno nadpisywać ogólną zasadę dla tr td */
+table.menu tr td {
+	border: none;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}

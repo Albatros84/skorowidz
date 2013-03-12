@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-<h3> Metryczka </h3>
+<h3 id="metr"> Metryczka </h3>
 	<div class="metr">
 	  <div class="field">
 	    <%= f.label :Nazwa_projektu %><br />
@@ -37,7 +37,7 @@
 	    <%= f.text_area :basecamp, :rows=>2, :cols=>105 %>
 	  </div>  
 	</div>  
-<h3> Sprawy organizacyjne </h3>
+<h3 id="org"> Sprawy organizacyjne </h3>
 	<div class="org">
 	  <div class="field">
 	    <%= f.label :liczba_uczestników %><br />
@@ -84,7 +84,7 @@
 	    <%= f.text_area :accomodation, :rows=>2, :cols=>105%>
 	  </div>
 	</div>  
-	<h3>Kwestie merytoryczne</h3>
+	<h3 id="mer">Kwestie merytoryczne</h3>
 	  <div class="mer">
 	   <div class="field">
 	    <%= f.label :cel_uzgodniony_z_klientem%><br />
@@ -115,7 +115,7 @@
 	    <%= f.text_area :other_information, :rows=>2, :cols=>105%>
 	  </div>
 	</div>  
-<h3>Zespół </h3>
+<h3 id="zespol">Zespół </h3>
 	<div class="zespol">  
 	  <div class="field">
 	    <%= f.label :główny_trener_prowadzący%><br />
@@ -134,7 +134,7 @@
 	    <%= f.text_area :assistants, :rows=>2, :cols=>105%>
 	  </div>
 	</div>
-<h3> Przed projektem</h3>
+<h3 id="przedPro"> Przed projektem</h3>
 	<div class="przedPro">
 	   <div class="field">
 	    <%= f.label :agenda_spotkania%><br />
@@ -153,7 +153,7 @@
 	    <%= f.text_area :invitation_for_participants, :rows=>2, :cols=>105, :class => 'ckeditor'%>
 	  </div>
 	</div>  
-<h3> Po spotkaniu </h3>
+<h3 id="poSpotkaniu"> Po spotkaniu </h3>
 	<div class="poSpotkaniu">	  
 	  <div class="field">
 	    <%= f.label :cel_i_pozostałe_oczekiwania_klienta%> (w jakim stopniu zostały zrealizowane, jakie były sytuacje trudne)<br />
