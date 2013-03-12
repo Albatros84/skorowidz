@@ -16,8 +16,9 @@
 //= require ckeditor-jquery
 //= require ckeditor/ckeditor
 //= require_tree .
+
  $(document).ready(function(){
- 	  $("div.metr").hide();
+ 	  /*$("div.metr").hide();*/
       $("h3#metr").click(function(){
       $("div.metr").toggle('fast','swing');
      });
