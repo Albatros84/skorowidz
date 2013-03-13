@@ -1,13 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  email: MyString
-  password_hash: 
-  password_salt: 
-  role: MyString
+  email: janlir@wp.pl
+  password_hash: $2a$10$GXkBah0Kq4wWTIEndhpH6OhJqaPrDxcEXxWuwkO3iRKZAAPL7yKiq
+  password_salt: $2a$10$GXkBah0Kq4wWTIEndhpH6O
+  role: admin
+  auth_token: RZ7Q3iIbrXgUmaZTas9eYQ
+  password_reset_token:
+  password_reset_sent_at:
 
-two:
-  email: MyString
-  password_hash: 
-  password_salt: 
-  role: MyString

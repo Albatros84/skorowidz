@@ -1,93 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name_history: MyString
-  client_history: MyString
-  project_type_history: MyString
-  highrise_history: MyString
-  skydrive_history: MyString
-  basecamp_history: MyString
-  participant_count_history: MyString
-  game_history: MyString
-  groups_division_history: MyString
-  number_of_rooms_history: MyString
-  date_of_game_history: MyString
-  hour_duration_history: MyString
-  localization_history: MyString
-  contacts_client_history: MyString
-  contacts_hotel_history: MyString
-  transport_details_history: MyString
-  accomodation_history: MyString
-  target_agreed_with_customer_history: MyString
-  other_expectations_history: MyString
-  subject_history: MyString
-  profile_of_participants_history: MyString
-  contact_person_on_client_side_history: MyString
-  host_of_the_meeting_history: MyString
-  other_information_history: MyString
-  leading_head_coach_history: MyString
-  second_coach_history: MyString
-  CPD_trainee_history: MyString
-  assistants_history: MyString
-  agenda_of_meeting_history: MyString
-  responsibilities_division_history: MyString
-  after_game_summary_history: MyString
-  invitation_for_participants_history: MyString
-  purpose_and_other_expectations_history: MyString
-  participants_short_description_in_groups_history: MyString
-  course_of_training_history: MyString
-  on_fly_findings_and_suggestions_history: MyString
-  project_evaluation_history: MyString
-  proposals_for_sales_potential_history: MyString
-  merytoryka_history: MyString
-  conduct_and_summary_of_game_history: MyString
-  notes_on_materials_history: MyString
-  notes_on_organization_history: MyString
+  value: MyString
   user: 
   project: 
 
 two:
-  name_history: MyString
-  client_history: MyString
-  project_type_history: MyString
-  highrise_history: MyString
-  skydrive_history: MyString
-  basecamp_history: MyString
-  participant_count_history: MyString
-  game_history: MyString
-  groups_division_history: MyString
-  number_of_rooms_history: MyString
-  date_of_game_history: MyString
-  hour_duration_history: MyString
-  localization_history: MyString
-  contacts_client_history: MyString
-  contacts_hotel_history: MyString
-  transport_details_history: MyString
-  accomodation_history: MyString
-  target_agreed_with_customer_history: MyString
-  other_expectations_history: MyString
-  subject_history: MyString
-  profile_of_participants_history: MyString
-  contact_person_on_client_side_history: MyString
-  host_of_the_meeting_history: MyString
-  other_information_history: MyString
-  leading_head_coach_history: MyString
-  second_coach_history: MyString
-  CPD_trainee_history: MyString
-  assistants_history: MyString
-  agenda_of_meeting_history: MyString
-  responsibilities_division_history: MyString
-  after_game_summary_history: MyString
-  invitation_for_participants_history: MyString
-  purpose_and_other_expectations_history: MyString
-  participants_short_description_in_groups_history: MyString
-  course_of_training_history: MyString
-  on_fly_findings_and_suggestions_history: MyString
-  project_evaluation_history: MyString
-  proposals_for_sales_potential_history: MyString
-  merytoryka_history: MyString
-  conduct_and_summary_of_game_history: MyString
-  notes_on_materials_history: MyString
-  notes_on_organization_history: MyString
+  value: MyString
   user: 
   project: 

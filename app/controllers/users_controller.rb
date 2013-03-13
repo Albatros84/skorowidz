@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     @users = User.all       
   end
   
- def random_pass(length=8)
+ def random_pass(length=8) #nie używane
     chars = [*('A'..'Z'), *('a'..'z'), *(0..9)]
     (0..length).map {chars.sample}.join
   end

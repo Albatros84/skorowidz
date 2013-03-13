@@ -7,14 +7,13 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   def login_as(user)
-   @request.session[:user_id] = user ? user.id : nil
+   @request.cookies[:auth_token] = user ? user.auth_token : nil
 end
 
   test "should get index" do   
      login_as(@user)
       get :index
       assert_response :success
-      assert_not_nil assigns(:projects)
       assert_select "title", "Skorowidz"
       assert_select "table tr th","Nazwa"
       assert_select "table"
@@ -25,7 +24,7 @@ end
   test "should get new" do
     login_as(@user)
       get :new
-      assert_select "title", "Skorowidz"
+      assert_select "title","Skorowidz"
       assert_response :success
    
   end

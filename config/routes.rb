@@ -1,27 +1,21 @@
 Skorowidz::Application.routes.draw do
-  
+  resources :projects
+  resources :users
+  resources :sessions
+  resources :password_resets
+  resources :secret
   get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
   #root :to => 'projects#index'
   #root :to => "home#index"
    root :to => "sessions#new" 
-  resources :users
-  resources :sessions
-  resources :password_resets
+ 
 
   get "password_resets/new"
   ##########################################################
   get "sessions/new"
-
-  get "users/new"
-
-  resources :projects
-
-  resources :welcomes
-  
-  resources :secret
- 
+  get "users/new" 
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "recover_password" => "users#recover_password", :as =>"recover_password"
@@ -29,8 +23,7 @@ Skorowidz::Application.routes.draw do
   #root :to => 'projects#index'
   #root :to => "users#new"
   root :to => "sessions#new"
-  resources :users
-  resources :sessions
+
       
   # The priority is based upon order of creation:
   # first created -> highest priority.

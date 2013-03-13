@@ -4,12 +4,12 @@ one:
   name: MyString
   client: MyString
   project_type: MyString
-  highrise: MyString
-  skydrive: MyString
+  highrise: http://www.postgresql.org/download/linux/ubuntu/
+  skydrive: 
 
 two:
   name: MyString
   client: MyString
   project_type: MyString
-  highrise: MyString
-  skydrive: MyString
+  highrise: http://www.postgresql.org/download/linux/ubuntu/
+  skydrive: 
