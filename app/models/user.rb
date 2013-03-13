@@ -1,6 +1,9 @@
 #!/usr/local/bin/ruby
 # coding: utf-8
 class User < ActiveRecord::Base
+  has_many :field_histories
+  has_many :projects, :through=>:field_histories
+  
   before_create { generate_token(:auth_token) }
  
   attr_accessible :email, :password_hash, :password_salt, :role
