@@ -16,3 +16,6 @@
 
 # Programmers have different password
 /config/database.yml
+
+# This seems to be temporary
+/Gemfile.lock
