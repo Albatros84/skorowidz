@@ -1,4 +1,14 @@
 Skorowidz::Application.routes.draw do
+  get "field_histories/index"
+
+  get "field_histories/new"
+
+  get "field_histories/edit"
+
+  get "field_histories/create"
+
+  get "field_histories/show"
+
   resources :projects
   resources :users
   resources :sessions

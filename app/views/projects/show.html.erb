@@ -5,37 +5,57 @@
 	<h1>Szczegóły projektu</h1>
 <p id="notice"><%= notice %></p>
 <h3 id="metr">Metryczka </h3>
+
+
 <div class="metr">
 	
 	<table class="tabl">
 	<tr>
 		<td class="head"><b>Nazwa projektu:</b> </td>
 		<td class="ins"><%=@project.name%> </td> 
+		<% if(@project.name_history_id!=nil) %>			
+			<td> <%= "Historia nazwy: "+@field_hist_arr[@project.name_history_id].value%> </td>
+			<% end %> 		
 	</tr>
 	
 <tr>
   <td class="head"><b>Klient:</b></td>
   <td class="ins"><%= @project.client %></td>
+  <% if(@project.client_history_id!=nil) %> 		
+  <td class="hist"><%= "Historia klienta: "+@field_hist_arr[@project.client_history_id].value%> </td>
+			<% end %>   	
 </tr>
 	
 <tr>
   <td class="head"><b>Rodzaj projektu:</b></td>
   <td class="ins"><%= @project.project_type %></td>
+  	<% if(@project.project_type_history_id!=nil) %> 			
+			<td> <%= "Historia typu projektu: "+@field_hist_arr[@project.project_type_history_id].value%> </td>
+			<% end %> 
 </tr>
 
 <tr>
   <td class="head"><b>Highrise:</b></td>
   <td class="ins"><%= @project.highrise %></td>
+  	<% if(@project.highrise_history_id!=nil) %> 			
+			<td> <%= "Historia Highrise: "+@field_hist_arr[@project.highrise_history_id].value%> </td>
+			<% end %> 
 </tr>
 
 <tr>
   <td class="head"><b>Skydrive:</b></td>
   <td class="ins"><%= @project.skydrive %></td>
+  <% if(@project.skydrive_history_id!=nil) %> 			
+			<td> <%= "Historia Skydrive: "+@field_hist_arr[@project.skydrive_history_id].value%> </td>
+			<% end %> 
 </tr>
 
 <tr>
   <td class="head"><b>Basecamp:</b></td>
   <td class="ins"><%= @project.basecamp%></td>
+  <% if(@project.basecamp_history_id!=nil) %> 			
+			<td> <%= "Historia Basecamp: "+@field_hist_arr[@project.basecamp_history_id].value%> </td>
+			<% end %>
 </tr>
 	</table>
 </div>
@@ -46,95 +66,146 @@
 	<tr>
   <td class="head"><b>Liczba uczestników:</b></td>
   <td class="ins"><%= @project.participant_count%></td>
+  <% if(@project.participant_count_history_id!=nil) %> 			
+			<td> <%= "Historia Ilości uczestników: "+@field_hist_arr[@project.participant_count_history_id].value%> </td>
+			<% end %>
 </tr>
 
 <tr>
   <td class="head"><b>Gra:</b></td>
   <td class="ins"><%= @project.game%></td>
+  <% if(@project.game_history_id!=nil) %> 			
+			<td> <%= "Historia gier: "+@field_hist_arr[@project.game_history_id].value%> </td>
+			<% end %>
 </tr>
 
 <tr>
   <td class="head"><b>Podział na grupy:</b></td>
   <td class="ins"><%= @project.groups_division%></td>
+  <% if(@project.groups_division_history_id!=nil) %> 			
+			<td> <%= "Historia podziału gróp: "+@field_hist_arr[@project.groups_division_history_id].value%> </td>
+			<% end %>
 </tr>
 
 <tr>
   <td class="head"> <b>Liczba sal:</b></td>
   <td class="ins"><%= @project.number_of_rooms%></td>
+  <% if(@project.number_of_rooms_history_id!=nil) %> 			
+			<td> <%= "Historia liczby sal: "+@field_hist_arr[@project.number_of_rooms_history_id].value%> </td>
+			<% end %>
 </tr>
 
 <tr>
   <td class="head"> <b>Data:</b></td>
   <td class="ins"><%= @project.date_of_game%></td>
+  <% if(@project.date_of_game_history_id!=nil) %> 			
+			<td> <%=# "Historia zmian daty gry: "+@field_hist_arr[@project.date_of_game_history_id].value
+			%> </td>
+			<% end %>
 </tr>
 
 <tr>
   <td class="head"> <b>Godziny:</b></td>
   <td class="ins"><%= @project.hour_duration%></td>
+   <% if(@project.hour_duration_history_id!=nil) %> 			
+			<td> <%= "Historia zmian czasu gry: "+@field_hist_arr[@project.hour_duration_history_id].value%> </td>
+			<% end %>
 </tr>
 
 <tr>
   <td class="head"><b>Lokalizacja:</b></td>
   <td class="ins"><%= @project.localization%></td>
-</tr>
+  <% if(@project.localization_history_id!=nil) %> 			
+			<td> <%= "Historia lokalizacji: "+@field_hist_arr[@project.localization_history_id].value%> </td>
+			<% end %>
+  </tr>
 
 <tr>
   <td class="head"> <b>Osoby kontaktowe od strony organizacyjnej (klient):</b></td>
   <td class="ins"><%= @project.contacts_client%></td>
+  <% if(@project.contacts_client_history_id!=nil) %> 			
+			<td> <%= "Historia zmian kontaktów: "+@field_hist_arr[@project.contacts_client_history_id].value%> </td>
+			<% end %>
 </tr>
 
 <tr>
   <td class="head">  <b>Osoby kontaktowe od strony organizacyjnej (hotel):</b></td>
   <td class="ins"><%= @project.contacts_hotel%></td>
+  <% if(@project.contacts_hotel_history_id!=nil) %> 			
+			<td> <%= "Historia zmian kontaktów: "+@field_hist_arr[@project.contacts_hotel_history_id].value%> </td>
+			<% end %>
 </tr>
 
 <tr>
   <td class="head"><b>Szczegóły dotyczące transportu:</b></td>
   <td class="ins"><%= @project.transport_details%></td>
+  <% if(@project.transport_details_history_id!=nil) %> 			
+			<td> <%= "Historia transportu: "+@field_hist_arr[@project.transport_details_history_id].value%> </td>
+			<% end %>
 </tr>
 
 <tr>
   <td class="head"><b>Zakwaterowanie:</b></td>
   <td class="ins"><%= @project.accomodation%></td>
-</tr>
+  <% if(@project.accomodation_history_id!=nil) %> 			
+			<td> <%= " Zmiany w zakwaterowaniu: "+@field_hist_arr[@project.accomodation_history_id].value%> </td>
+			<% end %>
+ </tr>
 </table>
 </div>
 
 <h3 id="mer">Kwestie Merytoryczne </h3>
 <div class="mer">
 	<table class="tabl">
-	<tr>
-		<td class="head"><b>Zakwaterowanie:</b></td>
-  <td class="ins"><%= @project.accomodation%></td>
-</tr>
 <tr>
 		<td class="head"> <b>Cel uzgodniony z klientem:</b></td>
   <td class="ins"><%= @project.target_agreed_with_customer%></td>
+  <% if(@project.target_agreed_with_customer_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.target_agreed_wirh_customer_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
 		<td class="head">
   <b>Pozostałe oczekiwania klienta:</b></td>
   <td class="ins"><%= @project.other_expectations%></td>
+  <% if(@project.other_expectations_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.other_expectations_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
 		<td class="head"><b>Temat i kontekst:</b></td>
   <td class="ins"><%= @project.subject%></td>
+  <% if(@project.subject_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.subject_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
 		<td class="head"><b>Profil uczestników:</b></td>
   <td class="ins"><%= @project.profile_of_participants%></td>
+  <% if(@project.profile_of_participants_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.profile_of_participants_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
 		<td class="head"><b>Osoba kontaktowa po stronie klienta:</b></td>
   <td class="ins"><%= @project.contact_person_on_client_side%></td>
+  <% if(@project.contact_person_on_client_side_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.contact_person_on_client_side_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
 		<td class="head"> <b>Gospodarz lub sponsor spotkania:</b></td>
   <td class="ins"><%= @project.host_of_the_meeting%></td>
+  <% if(@project.host_of_the_meeting_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.host_of_the_meeting_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
 		<td class="head"> <b>Pozostałe informacje (np. rodzaj raportu) :</b></td>
   <td class="ins"><%= @project.other_information%></td>
+  <% if(@project.other_information_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.other_information_history_id].value%> </td>
+			<% end %>
 </tr>
 </table>
 </div>
@@ -169,7 +240,7 @@
 </tr>
 <tr>
       <td class="head"><b>Podział obowiązków grupy projektowej:</b></td>
-  <td class="ins"><%= @project.resposibilities_division%></td>
+  <td class="ins"><%= @project.responsibilities_division%></td>
 </tr>
 <tr>
       <td class="head"><b>Podsumowanie po grze oraz program warsztatu:</b></td>

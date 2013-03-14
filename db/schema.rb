@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(:version => 20130312152056) do
     t.string   "CPD_trainee"
     t.text     "assistants"
     t.text     "agenda_of_meeting"
-    t.text     "resposibilities_division"
+    t.text     "responsibilities_division"
     t.text     "after_game_summary"
     t.text     "invitation_for_participants"
     t.text     "purpose_and_other_expectations"

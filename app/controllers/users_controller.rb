@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-       before_filter :require_admin_login
+     # before_filter :require_admin_login
       
   def new
     @user = User.new
@@ -45,6 +45,7 @@ class UsersController < ApplicationController
   
    def show
     @user = User.find(params[:id])
+    
      if @user.save
       respond_to do |format|
         format.html #show.html.erb
