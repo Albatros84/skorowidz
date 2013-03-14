@@ -73,10 +73,12 @@
 
 <tr>
   <td class="head"><b>Gra:</b></td>
+
   <td class="ins"><%= @project.game%></td>
   <% if(@project.game_history_id!=nil) %> 			
 			<td> <%= "Historia gier: "+@field_hist_arr[@project.game_history_id].value%> </td>
 			<% end %>
+  <td class="ins"><%= @project.games.collect {|g| g.name}.join(', ')%></td>
 </tr>
 
 <tr>

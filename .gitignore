@@ -13,3 +13,12 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Programmers have different password
+/config/database.yml
+
+# This seems to be temporary
+/Gemfile.lock
+
+# RubyMine project directory
+/.idea/

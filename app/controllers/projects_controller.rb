@@ -83,6 +83,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
+    params[:project][:game_ids] ||= []
 
     respond_to do |format|
       if @project.save
@@ -99,6 +100,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
+#<<<<<<< HEAD
      exec=String.new      
      exec2=String.new
      
@@ -119,6 +121,10 @@ class ProjectsController < ApplicationController
       eval(exec)
       #project.name_history_id=@field_history.id    
     end
+#=======
+    params[:project][:game_ids] ||= []
+
+#>>>>>>> f8029d25c818e9538557ddc115ac22f45222a6e8
     respond_to do |format|
       if @project.update_attributes(params[:project])
         format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }

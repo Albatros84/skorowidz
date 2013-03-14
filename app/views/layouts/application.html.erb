@@ -7,25 +7,29 @@
   <%= csrf_meta_tags %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
 </head>
-<body>	
-<div id="user_nav">
-  <% if current_user %>
-    Logged in as <%= current_user.email %>, <%= current_user.role %>
-    <%= link_to "Log out", log_out_path %>
-     <% if current_user.role.eql?('admin')%>
-   		<%= link_to "Manage users", users_path%>
-     <%end%>
-  <% else %>
- 
-  <% end %>
- 
+<body>
+<div id="page">
+<div id="top">
+    <span id="logo">Metryczki</span>
+    <div id="nav">
+      <%= link_to "Projects", projects_url %>
+      <%= link_to "Games", games_url %>
+      <% if current_user && current_user.role.eql?('admin')%>
+          <%= link_to "Manage users", users_path%>
+      <%end%>
+    </div>
+    <div id="user_nav">
+      <% if current_user %>
+        <%= current_user.email %> (<%= current_user.role %>), <%= link_to "Log out", log_out_path %>
+      <% end %>
+    </div>
 </div>
-
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 
 <%= yield %>
 
+</div>
 </body>
 </html>

@@ -15,8 +15,10 @@ development:
   database: skorowidz_development
   pool: 5
   username: root
+#  password: 
   password: 
-  socket: /opt/lampp/var/mysql/mysql.sock
+#>>>>>>> f8029d25c818e9538557ddc115ac22f45222a6e8
+  socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,8 +30,12 @@ test:
   database: skorowidz_test
   pool: 5
   username: root
+#<<<<<<< HEAD
   password: 
-  socket: /opt/lampp/var/mysql/mysql.sock
+#=======
+#  password: tajne
+#>>>>>>> f8029d25c818e9538557ddc115ac22f45222a6e8
+  socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
@@ -38,5 +44,5 @@ production:
   database: skorowidz_production
   pool: 5
   username: root
-  password: kamikadze84
-  socket: /opt/lampp/var/mysql/mysql.sock
+  password: 
+  socket: /var/run/mysqld/mysqld.sock
