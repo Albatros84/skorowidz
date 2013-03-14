@@ -99,7 +99,7 @@
   <td class="head"> <b>Data:</b></td>
   <td class="ins"><%= @project.date_of_game%></td>
   <% if(@project.date_of_game_history_id!=nil) %> 			
-			<td> <%=# "Historia zmian daty gry: "+@field_hist_arr[@project.date_of_game_history_id].value
+			<td> <%= "Historia zmian daty gry: "+@field_hist_arr[@project.date_of_game_history_id].value
 			%> </td>
 			<% end %>
 </tr>
@@ -216,18 +216,30 @@
 	<tr>
       <td class="head"><b>Główny trener prowadzący:</b></td>
       <td class="ins"><%= @project.leading_head_coach%></td>
+      <% if(@project.leading_head_coach_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.leading_head_coach_history_id].value%> </td>
+			<% end %>
     </tr>
 <tr>
       <td class="head"><b>Drugi_trener:</b></td>
       <td class="ins"><%= @project.second_coach%></td>
+      <% if(@project.second_coach_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.second_coach_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Trainee w ramach CPD:</b></td>
       <td class="ins"><%= @project.CPD_trainee%></td>
+      <% if(@project.CPD_trainee_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.CPD_trainee_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Asystenci:</b></td>
       <td class="ins"><%= @project.assistants%></td>
+      <% if(@project.assistants_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.assistants_history_id].value%> </td>
+			<% end %>
 </tr>
 </table>
 </div>
@@ -237,18 +249,30 @@
 	<tr>
       <td class="head"><b>Agenda spotkania:</b></td>
   <td class="ins"><%= @project.agenda_of_meeting%></td>
+      <% if(@project.leading_head_coach_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.leading_head_coach_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Podział obowiązków grupy projektowej:</b></td>
   <td class="ins"><%= @project.responsibilities_division%></td>
+   <% if(@project.leading_head_coach_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.leading_head_coach_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Podsumowanie po grze oraz program warsztatu:</b></td>
   <td class="ins"><%= @project.after_game_summary%></td>
+   <% if(@project.after_game_summary_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.after_game_summary_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Zaproszenie, dla uczestników:</b></td>
   <td class="ins"><%= @project.invitation_for_participants%></td>
+  <% if(@project.invitation_for_participants_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.invitation_for_participants_history_id].value%> </td>
+			<% end %>
 </tr>
 </table>
 </div>
@@ -259,42 +283,73 @@
 	<tr>
       <td class="head"><b>Cel i pozostałe oczekiwania klienta (w jakim stopniu zostały zrealizowane, jakie były sytuacje trudne):</b></td>
   <td class="ins"><%= @project.purpose_and_other_expectations%></td>
+  <% if(@project.purpose_and_other_expectations_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.purpose_and_other_expectations_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Uczestnicy i krótka charakterystyka z podziałem na grupy:</b></td>
   <td class="ins"><%= @project.participants_short_description_in_groups%></td>
+  <% if(@project.participants_short_description_in_groups_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.participants_short_description_in_groups_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Przebieg szkolenia oraz gry:</b></td>
   <td class="ins"><%= @project.course_of_training%></td>
+  <% if(@project.course_of_training_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.course_of_training_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Ustalenia z klientem uzgodnione podczas projektu oraz jego sugestie:</b></td>
   <td class="ins"><%= @project.on_fly_findings_and_suggestions%></td>
+  <% if(@project.on_fly_findings_and_suggestions_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.on_fly_findings_and_suggestions_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Ocena realizacji projektu przez zespół projektowy:</b></td>
   <td class="ins"><%= @project.project_evaluation%></td>
+  <% if(@project.project_evaluation_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.project_evaluation_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Wnioski dotyczące potencjału sprzedażowego:</b></td>
   <td class="ins"><%= @project.proposals_for_sales_potential%></td>
+  <% if(@project.proposals_for_sales_potential_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.proposals_for_sales_potential_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
       <td class="head"><b>Merytoryka oraz program warsztatu, gra vs cel, podsumowanie po grze:</b></td>
   <td class="ins"><%= @project.merytoryka%></td>
+   <% if(@project.merytoryka_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.merytoryka_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
   <td class="head"><b>Przeprowadzenie i podsumowanie gry:</b></td>
   <td class="ins"><%= @project.conduct_and_summary_of_game%></td>
+  <% if(@project.conduct_and_summary_of_game_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.conduct_and_summary_of_game_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
   <td class="head"><b>Uwagi odnośnie materiałów:</b></td>
   <td class="ins"><%= @project.notes_on_materials%></td>
+  <% if(@project.notes_on_materials_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.notes_on_materials_history_id].value%> </td>
+			<% end %>
 </tr>
 <tr>
   <td class="head"><b>Uwagi odnośnie organizacji:</b></td>
   <td class="ins"><%= @project.notes_on_organization%></td>
+  <% if(@project.notes_on_organization_history_id!=nil) %> 			
+			<td> <%= "Historia: "+@field_hist_arr[@project.notes_on_organization_history_id].value%> </td>
+			<% end %>
+  
 </tr>
 </table>
 </div>
