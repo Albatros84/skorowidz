@@ -45,7 +45,9 @@
 	  </div> 
 	  <div class="field">
 	    <%= f.label :gra %><br />
-	    <%= f.text_area :game, :rows=>2, :cols=>105 %>
+        <% Game.all.each do |game| %>
+          <%= check_box_tag("project[game_ids][]", game.id, @project.games.include?(game)) %> <%= game.name %>
+        <% end %>
 	  </div>
 	   <div class="field">
 	    <%= f.label :podział_na_grupy %><br />

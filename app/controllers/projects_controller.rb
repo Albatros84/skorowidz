@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
+    params[:project][:game_ids] ||= []
 
     respond_to do |format|
       if @project.save
@@ -57,6 +58,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
+    params[:project][:game_ids] ||= []
 
     respond_to do |format|
       if @project.update_attributes(params[:project])

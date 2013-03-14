@@ -50,7 +50,7 @@
 
 <tr>
   <td class="head"><b>Gra:</b></td>
-  <td class="ins"><%= @project.game%></td>
+  <td class="ins"><%= @project.games.collect {|g| g.name}.join(', ')%></td>
 </tr>
 
 <tr>
