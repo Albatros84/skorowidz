@@ -1,4 +1,7 @@
 Skorowidz::Application.routes.draw do
+  resources :games
+
+
   resources :projects
   resources :users
   resources :sessions
