@@ -100,33 +100,11 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
-#<<<<<<< HEAD
-     exec=String.new      
-     exec2=String.new
-     
-    Arr.each do |fl|
-      #trzeba jeszcze ustawić field_history.project_id
-      
-      exec="@project."+fl.to_s+"=@field_history.id"
-       #ex: project.name_history_id=@field_history.id_
-      fl=fl.to_s.gsub!(fl.to_s[-11,11],"") 
-      exec2="@project."+fl.to_s #ex: project.name  
-           
-      @field_history=FieldHistory.new
-      @field_history.project_id=@project.id
-      @field_history.value=eval(exec2)#project.pole
-      if(@field_history.value!=""&&@field_history.value) 
-        @field_history.save
-      end
-      eval(exec)
-      #project.name_history_id=@field_history.id    
-    end
-#=======
+    old_project = Project.find(params[:id])
     params[:project][:game_ids] ||= []
-
-#>>>>>>> f8029d25c818e9538557ddc115ac22f45222a6e8
     respond_to do |format|
       if @project.update_attributes(params[:project])
+        remember_changes params[:project], old_project
         format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
@@ -135,19 +113,17 @@ class ProjectsController < ApplicationController
       end
     end
   end
-  
-  def set_field_hist_value(project, field_history)
-    Arr.each do |fl|
-     
-    
-    
-    project = Project.find(params[:id])
-    field_history=FieldHistory.new
-    field_history.value=eval(exec)
-    field_history.save
-    project.name_history_id=field_history.id   
+
+  def remember_changes(new_array ,old_project)
+    new_array.each do |key,new_value|
+      next if key == "game_ids"
+      if new_value != old_project[key]
+          @field_history = FieldHistory.new
+          @field_history.project_id = old_project.id
+          @field_history.value = old_project[key]
+          @field_history.save
+      end
     end
-        
   end
 
   # DELETE /projects/1
