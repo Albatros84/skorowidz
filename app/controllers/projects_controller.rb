@@ -77,6 +77,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    
+    Arr.each do |fl|
+      exec2="@project."+fl.to_s+"_will_change!"   
+      eval(exec2)  
+    end    
   end
 
   # POST /projects
@@ -100,7 +105,6 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
-#<<<<<<< HEAD
      exec=String.new      
      exec2=String.new
      
@@ -111,20 +115,26 @@ class ProjectsController < ApplicationController
        #ex: project.name_history_id=@field_history.id_
       fl=fl.to_s.gsub!(fl.to_s[-11,11],"") 
       exec2="@project."+fl.to_s #ex: project.name  
+       
+       exec3="@project."+fl.to_s+"_changed?"     
+        #   @project.name_changed?
+           #puts @val_before 
            
-      @field_history=FieldHistory.new
-      @field_history.project_id=@project.id
-      @field_history.value=eval(exec2)#project.pole
-      if(@field_history.value!=""&&@field_history.value) 
-        @field_history.save
-      end
-      eval(exec)
+           if (eval(exec3))
+              @field_history=FieldHistory.new
+              @field_history.project_id=@project.id
+              @field_history.value=eval(exec2)#project.pole
+              @field_history.save              
+          end
+      #&&@field_history.value!=eval(exec2)
+     # if(@field_history.value!="") 
+    #    @field_history.save
+     # end
+     # eval(exec)
       #project.name_history_id=@field_history.id    
     end
-#=======
     params[:project][:game_ids] ||= []
 
-#>>>>>>> f8029d25c818e9538557ddc115ac22f45222a6e8
     respond_to do |format|
       if @project.update_attributes(params[:project])
         format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }

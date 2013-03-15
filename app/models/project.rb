@@ -1,9 +1,11 @@
 #!/usr/local/bin/ruby
 # coding: utf-8
 class Project < ActiveRecord::Base
+  
   has_many :field_histories
   has_many :users, :through=>:field_histories
   has_and_belongs_to_many :games, order: :name
+  
   
   attr_accessible :client, :highrise, :name, :project_type, :skydrive, :basecamp,
   :participant_count, :game, :groups_division, :number_of_rooms, :date_of_game, :hour_duration,
