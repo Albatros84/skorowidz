@@ -156,6 +156,7 @@ class ProjectsController < ApplicationController
     new_array.each do |key,new_value|
       next if key == "game_ids"
       if new_value != old_project[key]
+        raise "#{key}"
           @field_history = FieldHistory.new
       #    @field_history.project_id = old_project.id
     #  old_project[key]=@field_history.id
