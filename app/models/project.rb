@@ -2,7 +2,7 @@
 # coding: utf-8
 class Project < ActiveRecord::Base
   
-  has_many :field_histories
+ # has_many :field_histories
   has_many :users, :through=>:field_histories
   has_and_belongs_to_many :games, order: :name
   
