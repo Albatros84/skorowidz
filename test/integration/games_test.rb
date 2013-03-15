@@ -5,6 +5,8 @@ MiniTest::Reporters.use!
 class GamesTest < ActionController::IntegrationTest
   def test_add_game_to_project
     # see that checkboxes exist
+    get "/projects/#{projects(:urzad_miasta).id}"
+
     # post new games
     # check changes and remembered history
   end

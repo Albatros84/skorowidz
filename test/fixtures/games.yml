@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
+ekoskrzaty:
+  name: Ekoskrzaty
 
-two:
-  name: MyString
+strike:
+  name: Strike Fighter
