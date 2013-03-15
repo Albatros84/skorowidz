@@ -1,4 +1,6 @@
 require 'test_helper'
+require 'minitest/reporters'
+MiniTest::Reporters.use!
 
 class FieldHistoriesControllerTest < ActionController::TestCase
   test "should get index" do
@@ -25,5 +27,4 @@ class FieldHistoriesControllerTest < ActionController::TestCase
     get :show
     assert_response :success
   end
-
 end
