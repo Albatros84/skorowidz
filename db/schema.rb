@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130315143159) do
+ActiveRecord::Schema.define(:version => 20130316104955) do
 
   create_table "field_histories", :force => true do |t|
     t.string   "value"
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20130315143159) do
     t.string   "game"
     t.text     "groups_division"
     t.string   "number_of_rooms"
-    t.date     "date_of_game"
+    t.string   "date_of_game"
     t.string   "hour_duration"
     t.string   "localization"
     t.string   "contacts_client"

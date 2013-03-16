@@ -4,7 +4,7 @@ class AddParticipantCountToProject < ActiveRecord::Migration
     add_column :projects, :game, :string
     add_column :projects, :groups_division, :text
     add_column :projects, :number_of_rooms, :string
-    add_column :projects, :date_of_game, :date
+    add_column :projects, :date_of_game, :string
     add_column :projects, :hour_duration, :string
     add_column :projects, :localization, :string
     add_column :projects, :contacts_client, :string

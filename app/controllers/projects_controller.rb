@@ -32,9 +32,9 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @field_histories=FieldHistory.all
        
-       FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
-        @field_hist_arr=FieldHistory.all
-         }
+       # FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
+        # @field_hist_arr=FieldHistory.all
+         # }
        #teraz chcę uzyskać tablice z wszystkimi z id value z field histories
        
        
@@ -139,10 +139,11 @@ class ProjectsController < ApplicationController
     params[:project][:game_ids] ||= []
 
     old_project = Project.find(params[:id])
+    id=old_project.id
     params[:project][:game_ids] ||= []
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        remember_changes params[:project], old_project
+        remember_changes params[:project], old_project, id
         format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
@@ -152,18 +153,19 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def remember_changes(new_array ,old_project)
+  def remember_changes(new_array ,old_project,project_id)
     new_array.each do |key,new_value|
       next if key == "game_ids"
       if new_value != old_project[key]
-        raise "#{key}"
+       # raise "#{key}"
           @field_history = FieldHistory.new
-      #    @field_history.project_id = old_project.id
-    #  old_project[key]=@field_history.id
-    #  old_project[key].save
-          @field_history.value = old_project[key]
-          
+          @field_history.value = old_project[key]          
           @field_history.save
+          project_instance=Project.find_by_id(project_id)
+          string=String.new          
+          string="project_instance."+"#{key}"+"_history_id=@field_history.id"
+          eval(string)
+          project_instance.save
       end
     end
     
