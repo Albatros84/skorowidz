@@ -32,9 +32,9 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @field_histories=FieldHistory.all
        
-       # FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
-        # @field_hist_arr=FieldHistory.all
-         # }
+        FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
+         @field_hist_arr[i]=FieldHistory.find(i)
+          }
        #teraz chcę uzyskać tablice z wszystkimi z id value z field histories
        
        
