@@ -11,17 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314095506) do
+ActiveRecord::Schema.define(:version => 20130316104955) do
 
   create_table "field_histories", :force => true do |t|
     t.string   "value"
     t.integer  "user_id"
-    t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "field_histories", ["project_id"], :name => "index_field_histories_on_project_id"
   add_index "field_histories", ["user_id"], :name => "index_field_histories_on_user_id"
 
   create_table "games", :force => true do |t|
@@ -50,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20130314095506) do
     t.string   "game"
     t.text     "groups_division"
     t.string   "number_of_rooms"
-    t.date     "date_of_game"
+    t.string   "date_of_game"
     t.string   "hour_duration"
     t.string   "localization"
     t.string   "contacts_client"

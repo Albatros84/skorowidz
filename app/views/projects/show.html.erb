@@ -1,10 +1,11 @@
-	<div class="links_top">
+<div class="links_top">
 <%= link_to 'Edit', edit_project_path(@project) %> <br/>
 <%= link_to 'Back', projects_path %>
 </div>
 	<h1>Szczegóły projektu</h1>
 <p id="notice"><%= notice %></p>
 <h3 id="metr">Metryczka </h3>
+
 
 
 <div class="metr">
@@ -14,7 +15,7 @@
 		<td class="head"><b>Nazwa projektu:</b> </td>
 		<td class="ins"><%=@project.name%> </td> 
 		<% if(@project.name_history_id!=nil) %>			
-			<td> <%= "Historia nazwy: "+@field_hist_arr[@project.name_history_id].value%> </td>
+			<td> <%= "Historia: "+@field_hist_arr[@project.name_history_id].value%> </td>
 			<% end %> 		
 	</tr>
 	
@@ -22,7 +23,7 @@
   <td class="head"><b>Klient:</b></td>
   <td class="ins"><%= @project.client %></td>
   <% if(@project.client_history_id!=nil) %> 		
-  <td class="hist"><%= "Historia klienta: "+@field_hist_arr[@project.client_history_id].value%> </td>
+  <td class="hist"><%= "Historia: "+@field_hist_arr[@project.client_history_id].value%> </td>
 			<% end %>   	
 </tr>
 	
@@ -30,7 +31,7 @@
   <td class="head"><b>Rodzaj projektu:</b></td>
   <td class="ins"><%= @project.project_type %></td>
   	<% if(@project.project_type_history_id!=nil) %> 			
-			<td> <%= "Historia typu projektu: "+@field_hist_arr[@project.project_type_history_id].value%> </td>
+			<td> <%= "Historia: "+@field_hist_arr[@project.project_type_history_id].value%> </td>
 			<% end %> 
 </tr>
 
@@ -38,7 +39,7 @@
   <td class="head"><b>Highrise:</b></td>
   <td class="ins"><%= @project.highrise %></td>
   	<% if(@project.highrise_history_id!=nil) %> 			
-			<td> <%= "Historia Highrise: "+@field_hist_arr[@project.highrise_history_id].value%> </td>
+			<td> <%= "Historia: "+@field_hist_arr[@project.highrise_history_id].value%> </td>
 			<% end %> 
 </tr>
 
@@ -46,7 +47,7 @@
   <td class="head"><b>Skydrive:</b></td>
   <td class="ins"><%= @project.skydrive %></td>
   <% if(@project.skydrive_history_id!=nil) %> 			
-			<td> <%= "Historia Skydrive: "+@field_hist_arr[@project.skydrive_history_id].value%> </td>
+			<td> <%= "Historia: "+@field_hist_arr[@project.skydrive_history_id].value%> </td>
 			<% end %> 
 </tr>
 
@@ -54,7 +55,7 @@
   <td class="head"><b>Basecamp:</b></td>
   <td class="ins"><%= @project.basecamp%></td>
   <% if(@project.basecamp_history_id!=nil) %> 			
-			<td> <%= "Historia Basecamp: "+@field_hist_arr[@project.basecamp_history_id].value%> </td>
+			<td> <%= "Historia: "+@field_hist_arr[@project.basecamp_history_id].value%> </td>
 			<% end %>
 </tr>
 	</table>
@@ -67,7 +68,7 @@
   <td class="head"><b>Liczba uczestników:</b></td>
   <td class="ins"><%= @project.participant_count%></td>
   <% if(@project.participant_count_history_id!=nil) %> 			
-			<td> <%= "Historia Ilości uczestników: "+@field_hist_arr[@project.participant_count_history_id].value%> </td>
+			<td> <%= "Historia: "+@field_hist_arr[@project.participant_count_history_id].value%> </td>
 			<% end %>
 </tr>
 
@@ -75,9 +76,10 @@
   <td class="head"><b>Gra:</b></td>
 
   <td class="ins"><%= @project.game%></td>
-  <% if(@project.game_history_id!=nil) %> 			
-			<td> <%= "Historia gier: "+@field_hist_arr[@project.game_history_id].value%> </td>
-			<% end %>
+  <% if(@project.game_history_id!=nil)%> 			
+			<td> <%= #"Historia: "+@field_hist_arr[@project.game_history_id].value
+			%> </td>
+			<% end%>
   <td class="ins"><%= @project.games.collect {|g| g.name}.join(', ')%></td>
 </tr>
 
@@ -101,7 +103,7 @@
   <td class="head"> <b>Data:</b></td>
   <td class="ins"><%= @project.date_of_game%></td>
   <% if(@project.date_of_game_history_id!=nil) %> 			
-			<td> <%= "Historia zmian daty gry: "+@field_hist_arr[@project.date_of_game_history_id].value
+			<td> <%= #"Historia zmian daty gry: "+@field_hist_arr[@project.date_of_game_history_id].value
 			%> </td>
 			<% end %>
 </tr>

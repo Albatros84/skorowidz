@@ -27,14 +27,16 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   # GET /projects/1.json
-  def show
-    @field_hist_arr=Array.new    
+  def show  
+    @field_hist_arr=Hash.new 
     @project = Project.find(params[:id])
     @field_histories=FieldHistory.all
        
-       0.upto(FieldHistory.all.size){|i|  
-        @field_hist_arr<<FieldHistory.where(:id=>i).last
-         }
+        FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
+         @field_hist_arr[i]=FieldHistory.find(i)
+          }
+       #teraz chcę uzyskać tablice z wszystkimi z id value z field histories
+       
        
        
     Arr.each do |fl|
@@ -77,6 +79,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    
+    Arr.each do |fl|
+      exec2="@project."+fl.to_s+"_will_change!"   
+      eval(exec2)  
+    end    
   end
 
   # POST /projects
@@ -100,11 +107,43 @@ class ProjectsController < ApplicationController
   # PUT /projects/1.json
   def update
     @project = Project.find(params[:id])
+
+    # exec=String.new      
+    # exec2=String.new
+     
+    #Arr.each do |fl|
+      #trzeba jeszcze ustawić field_history.project_id
+      
+      #exec="@project."+fl.to_s+"=@field_history.id"
+       #ex: project.name_history_id=@field_history.id_
+      #fl=fl.to_s.gsub!(fl.to_s[-11,11],"") 
+      #exec2="@project."+fl.to_s #ex: project.name  
+       
+       #exec3="@project."+fl.to_s+"_changed?"     
+        #   @project.name_changed?
+           #puts @val_before 
+           
+           # if (eval(exec3))
+              # @field_history=FieldHistory.new
+              # @field_history.project_id=@project.id
+              # @field_history.value=eval(exec2)#project.pole
+              # @field_history.save              
+          # end
+      #&&@field_history.value!=eval(exec2)
+     # if(@field_history.value!="") 
+    #    @field_history.save
+     # end
+     # eval(exec)
+      #project.name_history_id=@field_history.id    
+   # end
+    params[:project][:game_ids] ||= []
+
     old_project = Project.find(params[:id])
+    id=old_project.id
     params[:project][:game_ids] ||= []
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        remember_changes params[:project], old_project
+        remember_changes params[:project], old_project, id
         format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
@@ -114,17 +153,29 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def remember_changes(new_array ,old_project)
+  def remember_changes(new_array ,old_project,project_id)
     new_array.each do |key,new_value|
       next if key == "game_ids"
       if new_value != old_project[key]
-        raise "#{key}"
+       # raise "#{key}"
           @field_history = FieldHistory.new
-          @field_history.project_id = old_project.id
-          @field_history.value = old_project[key]
+          @field_history.value = old_project[key]          
           @field_history.save
+          project_instance=Project.find_by_id(project_id)
+          string=String.new          
+          string="project_instance."+"#{key}"+"_history_id=@field_history.id"
+          eval(string)
+          project_instance.save
       end
     end
+    
+    #chcemy przejść tylko po kluczach obcych w tabeli projects
+    # i uaktualnić tylko te klucze obce
+    # które dla których zmieniła się wartość pola
+    # Arr.each do |fl|
+          # old_project[fl]=@field_history.id
+          # end
+    
   end
 
   # DELETE /projects/1
