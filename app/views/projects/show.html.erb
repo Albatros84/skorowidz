@@ -219,7 +219,7 @@
       <td class="head"><b>Główny trener prowadzący:</b></td>
       <td class="ins"><%= @project.leading_head_coach%></td>
       <% if(@project.leading_head_coach_history_id!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.other_information_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.leading_head_coach_history_id].value%> </td>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.leading_head_coach_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.leading_head_coach_history_id].value%> </td>
 			<% end %>
     </tr>
 <tr>
