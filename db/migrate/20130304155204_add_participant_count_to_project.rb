@@ -20,7 +20,7 @@ class AddParticipantCountToProject < ActiveRecord::Migration
     add_column :projects, :other_information, :text
     add_column :projects, :leading_head_coach, :string
     add_column :projects, :second_coach, :string
-    add_column :projects, :CPD_trainee, :string
+    add_column :projects, :cpd_trainee, :string
     add_column :projects, :assistants, :text
     add_column :projects, :agenda_of_meeting, :text
     add_column :projects, :responsibilities_division, :text

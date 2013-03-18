@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
         :other_expectations_history_id,:subject_history_id,:profile_of_participants_history_id,
         :contact_person_on_client_side_history_id,:host_of_the_meeting_history_id,
         :other_information_history_id,:leading_head_coach_history_id,:second_coach_history_id,
-        :CPD_trainee_history_id,:assistants_history_id,:agenda_of_meeting_history_id,
+        :cpd_trainee_history_id,:assistants_history_id,:agenda_of_meeting_history_id,
         :responsibilities_division_history_id,:after_game_summary_history_id,:invitation_for_participants_history_id,
         :purpose_and_other_expectations_history_id,:participants_short_description_in_groups_history_id,
         :course_of_training_history_id,:on_fly_findings_and_suggestions_history_id,
@@ -41,9 +41,12 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @users_from_history=User.all
            
+           
+           unless FieldHistory.minimum("id")==nil
         FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
           @field_hist_arr[i]=FieldHistory.find(i)    
           }       
+           end
     #tu są userzy z idekami takimi jakie mamy field_histories
  
       

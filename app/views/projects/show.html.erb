@@ -231,9 +231,9 @@
 </tr>
 <tr>
       <td class="head"><b>Trainee w ramach CPD:</b></td>
-      <td class="ins"><%= @project.CPD_trainee%></td>
-      <% if(@project.CPD_trainee_history_id!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.CPD_trainee_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.CPD_trainee_history_id].value%> </td>
+      <td class="ins"><%= @project.cpd_trainee%></td>
+      <% if(@project.cpd_trainee_history_id!=nil) %> 			
+			<td class=<%=@users_from_history[@field_hist_arr[@project.cpd_trainee_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.CPD_trainee_history_id].value%> </td>
 			<% end %>
 </tr>
 <tr>
