@@ -35,7 +35,7 @@
 
 <tr>
   <td class="head"><b>Highrise:</b></td>
-  <td class="ins"><%= @project.highrise %></td>
+  <td class="ins"><%= link_to @project.highrise.to_s, @project.highrise.to_s %></td>
   	<% if(@project.highrise_history_id!=nil && @field_hist_arr[@project.highrise_history_id].value.to_s!="") %> 			
 			<td class=<%=@users_from_history[@field_hist_arr[@project.highrise_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.highrise_history_id].value%> </td>
 			<% end %> 
@@ -43,7 +43,7 @@
 
 <tr>
   <td class="head"><b>Skydrive:</b></td>
-  <td class="ins"><%= @project.skydrive %></td>
+  <td class="ins"><%= link_to @project.skydrive.to_s, @project.skydrive %></td>
   <% if(@project.skydrive_history_id!=nil && @field_hist_arr[@project.skydrive_history_id].value.to_s!="") %> 			
 			<td class=<%=@users_from_history[@field_hist_arr[@project.skydrive_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.skydrive_history_id].value%> </td>
 			<% end %> 
@@ -51,7 +51,7 @@
 
 <tr>
   <td class="head"><b>Basecamp:</b></td>
-  <td class="ins"><%= @project.basecamp%></td>
+  <td class="ins"><%= link_to @project.basecamp.to_s, @project.basecamp.to_s%></td>
   <% if(@project.basecamp_history_id!=nil && @field_hist_arr[@project.basecamp_history_id].value.to_s!="") %> 			
 			<td class=<%=@users_from_history[@field_hist_arr[@project.basecamp_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.basecamp_history_id].value%> </td>
 			<% end %>

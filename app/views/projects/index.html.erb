@@ -18,9 +18,9 @@
     <td><span class="name"><%= project.name %></span></td>
     <td><%= project.client %></td>
     <td><%= project.project_type %></td>
-    <td><%= project.highrise %></td>
-    <td><%= project.skydrive %></td>
-    <td><%= project.basecamp %></td>
+    <td><%= link_to project.highrise.to_s, project.highrise %></td>
+    <td><a href=<%= project.skydrive.to_s %> target="_blank"><%=project.skydrive.to_s %> </a></td>
+    <td><a href=<%= project.basecamp.to_s %> target="_blank"><%=project.basecamp.to_s %></a></td>
     <td class="show"><%= link_to 'Pokaż', project %></td>
     <td class="ed"><%= link_to 'Edytuj', edit_project_path(project) %></td>
     <td class="del"><%= link_to 'Usuń', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
