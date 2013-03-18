@@ -1,6 +1,6 @@
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
+* listed below.
  *
  * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
  * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
@@ -12,6 +12,7 @@
  *= require_tree .
  */
 /* Layout */
+
 #page {
     max-width: 920px;
     margin: 0 auto;
@@ -81,7 +82,7 @@ table.metryczka{
 	padding: 15px 0px 15px 0px;
 	border-top: 3px solid rgb(103,153,253);
 	border-bottom: 3px solid rgb(103,153,253);
-
+	
 }
 
 th{
@@ -89,10 +90,12 @@ th{
 	font-size: 15px;
 }
 
+
 tr td{
 	margin: 0px 0px 0px 0px;
 	padding: 14px 11px 14px 11px;
 	border: 1px solid black;
+	
 }
 
 td.del a{
