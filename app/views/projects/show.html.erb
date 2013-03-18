@@ -163,7 +163,7 @@
 		<td class="head"> <b>Cel uzgodniony z klientem:</b></td>
   <td class="ins"><%= @project.target_agreed_with_customer%></td>
   <% if(@project.target_agreed_with_customer_history_id!=nil) %> 			
-			<td class=<%=@users_from_history[@field_hist_arr[@project.target_agreed_with_customer_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.target_agreed_wirh_customer_history_id].value%> </td>
+			<td class=<%=@users_from_history[@field_hist_arr[@project.target_agreed_with_customer_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.target_agreed_with_customer_history_id].value%> </td>
 			<% end %>
 </tr>
 <tr>

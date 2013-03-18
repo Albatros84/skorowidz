@@ -1,5 +1,5 @@
 Skorowidz::Application.routes.draw do
-#<<<<<<< HEAD
+
   get "field_histories/index"
 
   get "field_histories/new"
@@ -9,10 +9,10 @@ Skorowidz::Application.routes.draw do
   get "field_histories/create"
 
   get "field_histories/show"
-#=======
+
   resources :games
 
-#>>>>>>> f8029d25c818e9538557ddc115ac22f45222a6e8
+
 
   resources :projects
   resources :users
