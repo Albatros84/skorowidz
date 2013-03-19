@@ -5,6 +5,7 @@
     <th>Nazwa</th>
     <th>Klient</th>
     <th>Rodzaj Projektu</th>
+    <th>Numer Księgowy</th>
     <th>Highrise</th>
     <th>Skydrive</th>
     <th>Basecamp</th>
@@ -16,9 +17,10 @@
 <% @projects.each do |project| %>
   <tr>
     <td><span class="name"><%= project.name %></span></td>
-    <td><%= project.client %></td>
-    <td><%= project.project_type %></td>
-    <td><%= link_to project.highrise.to_s, project.highrise %></td>
+    <td><%= project.client %> </td>
+    <td><%= project.project_type %> </td>
+    <td><%= project.numer_ks %> </td>
+    <td><a href=<%= project.highrise.to_s%> target="blank"><%= project.highrise.to_s %></a></td>
     <td><a href=<%= project.skydrive.to_s %> target="_blank"><%=project.skydrive.to_s %> </a></td>
     <td><a href=<%= project.basecamp.to_s %> target="_blank"><%=project.basecamp.to_s %></a></td>
     <td class="show"><%= link_to 'Pokaż', project %></td>

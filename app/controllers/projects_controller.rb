@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
         :purpose_and_other_expectations_history_id,:participants_short_description_in_groups_history_id,
         :course_of_training_history_id,:on_fly_findings_and_suggestions_history_id,
         :project_evaluation_history_id,:proposals_for_sales_potential_history_id,:merytoryka_history_id,
-        :conduct_and_summary_of_game_history_id,:notes_on_materials_history_id,:notes_on_organization_history_id]
+        :conduct_and_summary_of_game_history_id,:notes_on_materials_history_id,:notes_on_organization_history_id, :numer_ks_history_id]
     
   # GET /projects
   # GET /projects.json

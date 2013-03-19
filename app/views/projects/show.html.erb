@@ -34,8 +34,16 @@
 </tr>
 
 <tr>
+  <td class="head"><b>Numer księgowy:</b></td>
+  <td class="ins"><%= @project.numer_ks %></td>
+  	<% if(@project.numer_ks_history_id!=nil && @field_hist_arr[@project.numer_ks_history_id].value.to_s!="") %> 			
+			<td class=<%=@users_from_history[@field_hist_arr[@project.numer_ks_history_id].user_id-1].role%> > <%= "Historia: "+@field_hist_arr[@project.numer_ks_history_id].value%> </td>
+			<% end %> 
+</tr>
+
+<tr>
   <td class="head"><b>Highrise:</b></td>
-  <td class="ins"><%= link_to @project.highrise.to_s, @project.highrise.to_s %></td>
+  <td class="ins"><a href=<%= @project.highrise.to_s%> target="blank"><%= @project.highrise.to_s %></a></td>
   	<% if(@project.highrise_history_id!=nil && @field_hist_arr[@project.highrise_history_id].value.to_s!="") %> 			
 			<td class=<%=@users_from_history[@field_hist_arr[@project.highrise_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.highrise_history_id].value%> </td>
 			<% end %> 
@@ -43,7 +51,7 @@
 
 <tr>
   <td class="head"><b>Skydrive:</b></td>
-  <td class="ins"><%= link_to @project.skydrive.to_s, @project.skydrive %></td>
+  <td class="ins"><a href=<%= @project.skydrive.to_s%> target="blank"><%= @project.skydrive %></a></td>
   <% if(@project.skydrive_history_id!=nil && @field_hist_arr[@project.skydrive_history_id].value.to_s!="") %> 			
 			<td class=<%=@users_from_history[@field_hist_arr[@project.skydrive_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.skydrive_history_id].value%> </td>
 			<% end %> 
@@ -51,7 +59,7 @@
 
 <tr>
   <td class="head"><b>Basecamp:</b></td>
-  <td class="ins"><%= link_to @project.basecamp.to_s, @project.basecamp.to_s%></td>
+  <td class="ins"><a href=<%= @project.basecamp.to_s%> target="blank"><%= @project.basecamp.to_s%></a></td>
   <% if(@project.basecamp_history_id!=nil && @field_hist_arr[@project.basecamp_history_id].value.to_s!="") %> 			
 			<td class=<%=@users_from_history[@field_hist_arr[@project.basecamp_history_id].user_id-1].role%>> <%= "Historia: "+@field_hist_arr[@project.basecamp_history_id].value%> </td>
 			<% end %>

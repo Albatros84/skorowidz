@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130316104955) do
+ActiveRecord::Schema.define(:version => 20130319093650) do
 
   create_table "field_histories", :force => true do |t|
     t.string   "value"
@@ -122,6 +122,8 @@ ActiveRecord::Schema.define(:version => 20130316104955) do
     t.integer  "conduct_and_summary_of_game_history_id"
     t.integer  "notes_on_materials_history_id"
     t.integer  "notes_on_organization_history_id"
+    t.string   "numer_ks"
+    t.integer  "numer_ks_history_id"
   end
 
   create_table "users", :force => true do |t|
