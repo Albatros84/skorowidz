@@ -22,6 +22,11 @@ class Project < ActiveRecord::Base
   validates_presence_of :client, :on => :create
   validates_presence_of :project_type, :on => :create
   
+  validates :client, :highrise, :skydrive, :basecamp, :name, :project_type, :length => { :maximum => 240 }
+  validates :game, :number_of_rooms, :date_of_game, :hour_duration, :localization, :contacts_client, :contacts_hotel, :length => { :maximum => 200 }
+  validates :subject, :contact_person_on_client_side, :host_of_the_meeting, :leading_head_coach, :length => { :maximum => 240 }
+  validates :second_coach, :cpd_trainee, :length=>{:maximum=>240}
+  
   validates_format_of :highrise, :with => URI::regexp(%w(http https)) 
   validates_format_of :skydrive, :with => URI::regexp(%w(http https)), :allow_blank=>true, :allow_nil=>true
   validates_format_of :basecamp, :with => URI::regexp(%w(http https)), :allow_blank=>true, :allow_nil=>true
