@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130316104955) do
+ActiveRecord::Schema.define(:version => 20130319143506) do
 
   create_table "field_histories", :force => true do |t|
     t.string   "value"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20130316104955) do
     t.text     "other_information"
     t.string   "leading_head_coach"
     t.string   "second_coach"
-    t.string   "CPD_trainee"
+    t.string   "cpd_trainee"
     t.text     "assistants"
     t.text     "agenda_of_meeting"
     t.text     "responsibilities_division"
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(:version => 20130316104955) do
     t.integer  "other_information_history_id"
     t.integer  "leading_head_coach_history_id"
     t.integer  "second_coach_history_id"
-    t.integer  "CPD_trainee_history_id"
+    t.integer  "cpd_trainee_history_id"
     t.integer  "assistants_history_id"
     t.integer  "agenda_of_meeting_history_id"
     t.integer  "responsibilities_division_history_id"
@@ -122,50 +122,18 @@ ActiveRecord::Schema.define(:version => 20130316104955) do
     t.integer  "conduct_and_summary_of_game_history_id"
     t.integer  "notes_on_materials_history_id"
     t.integer  "notes_on_organization_history_id"
+    t.string   "numer_ks"
+    t.integer  "numer_ks_history_id"
+    t.integer  "user_roles_id"
   end
 
-  add_index "projects", ["CPD_trainee_history_id"], :name => "fk_CPD_trainee_history_id_histories"
-  add_index "projects", ["accomodation_history_id"], :name => "fk_accomodation_history_id_histories"
-  add_index "projects", ["after_game_summary_history_id"], :name => "fk_after_game_summary_history_id_histories"
-  add_index "projects", ["agenda_of_meeting_history_id"], :name => "fk_agenda_of_meeting_history_id_histories"
-  add_index "projects", ["assistants_history_id"], :name => "fk_assistants_history_id_histories"
-  add_index "projects", ["basecamp_history_id"], :name => "fk_basecamp_history_id_histories"
-  add_index "projects", ["client_history_id"], :name => "fk_client_history_id_histories"
-  add_index "projects", ["conduct_and_summary_of_game_history_id"], :name => "fk_conduct_and_summary_of_game_history_id_histories"
-  add_index "projects", ["contact_person_on_client_side_history_id"], :name => "fk_contact_person_on_client_side_history_id_histories"
-  add_index "projects", ["contacts_client_history_id"], :name => "fk_contacts_client_history_id_histories"
-  add_index "projects", ["contacts_hotel_history_id"], :name => "fk_contacts_hotel_history_id_histories"
-  add_index "projects", ["course_of_training_history_id"], :name => "fk_course_of_training_history_id_histories"
-  add_index "projects", ["date_of_game_history_id"], :name => "fk_date_of_game_history_id_histories"
-  add_index "projects", ["game_history_id"], :name => "fk_game_history_id_histories"
-  add_index "projects", ["groups_division_history_id"], :name => "fk_groups_division_history_id_histories"
-  add_index "projects", ["highrise_history_id"], :name => "fk_highrise_history_id_histories"
-  add_index "projects", ["host_of_the_meeting_history_id"], :name => "fk_host_of_the_meeting_history_id_histories"
-  add_index "projects", ["hour_duration_history_id"], :name => "fk_hour_duration_history_id_histories"
-  add_index "projects", ["invitation_for_participants_history_id"], :name => "fk_invitation_for_participants_history_id_histories"
-  add_index "projects", ["leading_head_coach_history_id"], :name => "fk_leading_head_coach_history_id_histories"
-  add_index "projects", ["localization_history_id"], :name => "fk_localization_history_id_histories"
-  add_index "projects", ["merytoryka_history_id"], :name => "fk_merytoryka_history_id_histories"
-  add_index "projects", ["name_history_id"], :name => "fk_name_history_id_histories"
-  add_index "projects", ["notes_on_materials_history_id"], :name => "fk_notes_on_materials_history_id_histories"
-  add_index "projects", ["notes_on_organization_history_id"], :name => "fk_notes_on_organization_history_id_histories"
-  add_index "projects", ["number_of_rooms_history_id"], :name => "fk_number_of_rooms_history_id_histories"
-  add_index "projects", ["on_fly_findings_and_suggestions_history_id"], :name => "fk_on_fly_findings_and_suggestions_history_id_histories"
-  add_index "projects", ["other_expectations_history_id"], :name => "fk_other_expectations_history_id_histories"
-  add_index "projects", ["other_information_history_id"], :name => "fk_other_information_history_id_histories"
-  add_index "projects", ["participant_count_history_id"], :name => "fk_participant_count_history_id_histories"
-  add_index "projects", ["participants_short_description_in_groups_history_id"], :name => "fk_participants_short_description_in_groups_history_id_histories"
-  add_index "projects", ["profile_of_participants_history_id"], :name => "fk_profile_of_participants_history_id_histories"
-  add_index "projects", ["project_evaluation_history_id"], :name => "fk_project_evaluation_history_id_histories"
-  add_index "projects", ["project_type_history_id"], :name => "fk_project_type_history_id_histories"
-  add_index "projects", ["proposals_for_sales_potential_history_id"], :name => "fk_proposals_for_sales_potential_history_id_histories"
-  add_index "projects", ["purpose_and_other_expectations_history_id"], :name => "fk_purpose_and_other_expectations_history_id_histories"
-  add_index "projects", ["responsibilities_division_history_id"], :name => "fk_responsibilities_division_history_id_histories"
-  add_index "projects", ["second_coach_history_id"], :name => "fk_second_coach_history_id_histories"
-  add_index "projects", ["skydrive_history_id"], :name => "fk_skydrive_history_id_histories"
-  add_index "projects", ["subject_history_id"], :name => "fk_subject_history_id_histories"
-  add_index "projects", ["target_agreed_with_customer_history_id"], :name => "fk_target_agreed_with_customer_history_id_histories"
-  add_index "projects", ["transport_details_history_id"], :name => "fk_transport_details_history_id_histories"
+  create_table "user_project_roles", :force => true do |t|
+    t.string   "proj_role"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "project_id"
+    t.integer  "user_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
@@ -177,6 +145,8 @@ ActiveRecord::Schema.define(:version => 20130316104955) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "name"
+    t.integer  "user_roles_id"
   end
 
   create_table "welcomes", :force => true do |t|

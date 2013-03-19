@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-     # before_filter :require_admin_login
+      before_filter :require_admin_login
       
   def new
     @user = User.new
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update_attributes(params[:user])
         UserMailer.recover_password(@user).deliver
-        format.html { redirect_to root_url, notice: 'User was successfully updated.' }
+        format.html { redirect_to users_url, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -37,6 +37,17 @@ class UsersController < ApplicationController
   def index
     @users = User.all       
   end
+  
+    def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to users_url }
+      format.json { head :no_content }
+    end
+  end
+  
   
  def random_pass(length=8) #nie używane
     chars = [*('A'..'Z'), *('a'..'z'), *(0..9)]

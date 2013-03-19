@@ -2,8 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
+.admin{
+  color: #DC143C;
+}
+.sprzedaż{
+  color: #6495ED;
+}
+.biuro{
+  color: #4B0082;
+}
+.trener{
+  color: #006400;
+}
+
 table.tabl{
-  width: 880px;
   border-style: none;
   background: #FDFDF0;
 } 
@@ -22,6 +36,7 @@ table.tabl tr td.ins{
   padding: 5px 35px 5px 35px;
   margin: 0px;
 }
+
 table.tabl tr:nth-child(even){
   background: #FDFDF0;
 }
@@ -29,12 +44,7 @@ table.tabl tr:nth-child(odd){
   background: white;
 }
 
-.pakowacz{
-  margin: 0px 15px 0px 15px;
-}
-
 div#pakowacz{
-  width: 920px;
   margin: 5px 5px 5px 5px;
   padding: 5px 5px 5px 5px;
 }

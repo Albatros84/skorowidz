@@ -24,6 +24,10 @@
 	    <%= f.label :Rodzaj_projektu %><br />
 	   <%= f.text_area :project_type, :rows=>2, :cols=>105 %>
 	  </div>
+	   <div class="field">
+	    <%= f.label :Numer_księgowy %><br />
+	    <%= f.text_area :numer_ks, :rows=>2, :cols=>105 %>
+	  </div>	  
 	  <div class="field">
 	    <%= f.label :highrise %><br />
 	    <%= f.text_area :highrise, :rows=>2, :cols=>105 %>
@@ -122,6 +126,9 @@
 	  <div class="field">
 	    <%= f.label :główny_trener_prowadzący%><br />
 	    <%= f.text_area :leading_head_coach, :rows=>2, :cols=>105%>
+	    <%= select("post", "users_id", User.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}) %>
+	    <%= select("post", "role_id", ['trener','asystent', 'reporter','koordynator merytoryczny'], {:include_blank => 'None'}) %>
+	    <%= button_tag "Add", :remote=>true%>
 	  </div>
 	   <div class="field">
 	    <%= f.label :drugi_trener%><br />
@@ -129,7 +136,7 @@
 	  </div>
 	  <div class="field">
 	    <%= f.label :Trainee_w_ramach_CPD%><br />
-	    <%= f.text_area :CPD_trainee, :rows=>2, :cols=>105%>
+	    <%= f.text_area :cpd_trainee, :rows=>2, :cols=>105%>
 	  </div>
 	    <div class="field">
 	    <%= f.label :Asystenci%><br />

@@ -6,11 +6,16 @@
 <tr>
 	<th>Email:</th>
 	<th>Rola użytkownika:</th>
+	<th>Imię:</th>
+	<th>Nazwisko:</th>
 	</tr><% @users.each do |user| %>
   <tr>
     <td><span class="name"><%= user.email %></span></td>
     <td><span class="name"><%= user.role %></span></td>
+    <td><span class="name"><%= user.name %></span></td>
     <td class="show"><%= link_to 'Edytuj użytkownika', edit_user_path(user) %></td>   
+    <td class="show"><%= link_to 'Pokaż', user %></td>
+    <td class="del"><%= link_to 'Usuń', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
