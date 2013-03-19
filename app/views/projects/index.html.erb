@@ -1,5 +1,5 @@
+<div id="index_p">
 <h1 class="title">Spis projektów</h1>
-<div>
 <table class="metryczka" >
   <tr>
     <th>Nazwa</th>
@@ -20,9 +20,9 @@
     <td><%= project.client %> </td>
     <td><%= project.project_type %> </td>
     <td><%= project.numer_ks %> </td>
-    <td><a href=<%= project.highrise.to_s%> target="blank"><%= project.highrise.to_s %></a></td>
-    <td><a href=<%= project.skydrive.to_s %> target="_blank"><%=project.skydrive.to_s %> </a></td>
-    <td><a href=<%= project.basecamp.to_s %> target="_blank"><%=project.basecamp.to_s %></a></td>
+    <td class="ind"><a href=<%= project.highrise.to_s%> target="blank"><%= project.highrise.to_s %></a></td>
+    <td class="ind"><a href=<%= project.skydrive.to_s %> target="_blank"><%=project.skydrive.to_s %> </a></td>
+    <td class="ind"><a href=<%= project.basecamp.to_s %> target="_blank"><%=project.basecamp.to_s %></a></td>
     <td class="show"><%= link_to 'Pokaż', project %></td>
     <td class="ed"><%= link_to 'Edytuj', edit_project_path(project) %></td>
     <td class="del"><%= link_to 'Usuń', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

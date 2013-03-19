@@ -13,6 +13,11 @@
  */
 /* Layout */
 
+#index_p{
+	max-width: 920px;
+    margin: 0 auto;
+}
+
 #page {
     max-width: 920px;
     margin: 0 auto;
@@ -82,7 +87,7 @@ table.metryczka{
 	padding: 15px 0px 15px 0px;
 	border-top: 3px solid rgb(103,153,253);
 	border-bottom: 3px solid rgb(103,153,253);
-	
+	max-width: 920px;
 }
 
 th{
@@ -93,9 +98,16 @@ th{
 
 tr td{
 	margin: 0px 0px 0px 0px;
-	padding: 14px 11px 14px 11px;
+	padding: 14px 5px 14px 5px;
 	border: 1px solid black;
-	
+}
+
+tr td.ind{
+	margin: 0px 0px 0px 0px;
+	padding: 14px 5px 14px 5px;
+	border: 1px solid black;
+	overflow: hidden;	
+	max-width: 120px;
 }
 
 td.del a{
