@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319125030) do
+ActiveRecord::Schema.define(:version => 20130319143506) do
 
   create_table "field_histories", :force => true do |t|
     t.string   "value"
@@ -124,12 +124,15 @@ ActiveRecord::Schema.define(:version => 20130319125030) do
     t.integer  "notes_on_organization_history_id"
     t.string   "numer_ks"
     t.integer  "numer_ks_history_id"
+    t.integer  "user_roles_id"
   end
 
   create_table "user_project_roles", :force => true do |t|
     t.string   "proj_role"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "project_id"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -143,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20130319125030) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "name"
+    t.integer  "user_roles_id"
   end
 
   create_table "welcomes", :force => true do |t|
