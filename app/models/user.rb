@@ -4,18 +4,23 @@ class User < ActiveRecord::Base
   has_many :field_histories
   has_many :projects, :through=>:field_histories
   
+  has_many :user_project_roles
+  has_many :projects, :through=>:user_project_roles
+  
   before_create { generate_token(:auth_token) }
  
   attr_accessible :email, :password_hash, :password_salt, :role
   #has_secure_password
-  attr_accessible :email, :password, :password_confirmation
+  attr_accessible :name, :password, :password_confirmation
   
   attr_accessor :password
   before_save :encrypt_password
   
+  
+  validates :name, :length=>{:maximum=>240}
   validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
-  validates_presence_of :email
+  validates_presence_of :password, :name, :on => :create
+  validates_presence_of :email, :name
   validates_uniqueness_of :email    
   validates_format_of :email, :with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i, :on => :create
   validates_inclusion_of :role, :in => ["admin", "trener","biuro", "sprzedaż"]

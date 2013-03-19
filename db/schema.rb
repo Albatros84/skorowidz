@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319093650) do
+ActiveRecord::Schema.define(:version => 20130319125030) do
 
   create_table "field_histories", :force => true do |t|
     t.string   "value"
@@ -126,6 +126,12 @@ ActiveRecord::Schema.define(:version => 20130319093650) do
     t.integer  "numer_ks_history_id"
   end
 
+  create_table "user_project_roles", :force => true do |t|
+    t.string   "proj_role"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "email"
     t.string   "password_hash"
@@ -136,6 +142,7 @@ ActiveRecord::Schema.define(:version => 20130319093650) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "name"
   end
 
   create_table "welcomes", :force => true do |t|

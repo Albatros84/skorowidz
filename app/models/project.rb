@@ -1,12 +1,15 @@
 #!/usr/local/bin/ruby
 # coding: utf-8
 class Project < ActiveRecord::Base
+   
+  has_many :user_project_roles
+  has_many :users, :through=>:user_project_roles
   
- # has_many :field_histories
+  has_many :field_histories
   has_many :users, :through=>:field_histories
   has_and_belongs_to_many :games, order: :name
   validates :numer_ks, :numericality => { :only_integer => true }
-  validates :numer_ks, :length=>{ :maximum => 10}, :allow_blank => true, :allow_nil=>:true
+  validates :numer_ks, :length=>{:maximum => 10}, :allow_blank => true, :allow_nil=>:true
   
   attr_accessible :client, :highrise, :name, :project_type, :skydrive, :basecamp,
   :participant_count, :game, :groups_division, :number_of_rooms, :date_of_game, :hour_duration,

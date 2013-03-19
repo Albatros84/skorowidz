@@ -40,16 +40,13 @@ class ProjectsController < ApplicationController
     @users_from_history=Hash.new 
     @project = Project.find(params[:id])
     @users_from_history=User.all
-           
-           
+                     
            unless FieldHistory.minimum("id")==nil
         FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
           @field_hist_arr[i]=FieldHistory.find(i)    
           }       
            end
-    #tu są userzy z idekami takimi jakie mamy field_histories
- 
-      
+    #tu są userzy z idekami takimi jakie mamy field_histories    
     #potrzebujemy tu dostępu do usera, ale jego user_id wyciągamy z field_histories
     #po to żeby wyciągnąć rolę z usera        
                
@@ -111,6 +108,10 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  def add_role
+    
   end
 
   def remember_changes(new_array ,old_project,project_id)
