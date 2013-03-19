@@ -94,7 +94,13 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     params[:project][:game_ids] ||= []
-
+   #**************************** 
+   
+    # user_project=UserProjectRole.new
+    # user_project.user_id=@user.id
+    # user_project.project_id=@project.id
+    
+  #******************************
     old_project = Project.find(params[:id])
     id=old_project.id
     params[:project][:game_ids] ||= []
@@ -110,10 +116,6 @@ class ProjectsController < ApplicationController
     end
   end
   
-  def add_role
-    
-  end
-
   def remember_changes(new_array ,old_project,project_id)
     new_array.each do |key,new_value|
       next if key == "game_ids"
@@ -133,11 +135,6 @@ class ProjectsController < ApplicationController
       end
     end
     
-
-
-
-
-
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy

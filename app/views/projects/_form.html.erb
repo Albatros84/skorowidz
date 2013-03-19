@@ -126,8 +126,9 @@
 	  <div class="field">
 	    <%= f.label :główny_trener_prowadzący%><br />
 	    <%= f.text_area :leading_head_coach, :rows=>2, :cols=>105%>
-	    <%= check_box_tag 'accept'%>
-	    <%= select("post", "user_id", User.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}) %>
+	    <%= select("post", "users_id", User.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}) %>
+	    <%= select("post", "role_id", ['trener','asystent', 'reporter','koordynator merytoryczny'], {:include_blank => 'None'}) %>
+	    <%= button_tag "Add", :remote=>true%>
 	  </div>
 	   <div class="field">
 	    <%= f.label :drugi_trener%><br />
