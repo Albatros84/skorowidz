@@ -98,6 +98,13 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     params[:project][:game_ids] ||= []
+       
+    #********* user selected from select tag in partial
+    user_project=UserProjectRole.new
+    selected_name = params[:user]
+    selected_user=User.find_by_name(selected_name.to_s)
+    user_project.proj_role = params[:role]
+    user_project.user_id=selected_user.id
    #**************************** 
    
     # user_project=UserProjectRole.new

@@ -1,21 +1,6 @@
+ To pochodzi z partiala, a reszta strony działa jak należy
  
- <%= form_for(@project) do |p| %>
- <div class="zespol">  
- <div class="field">
-	    <%= p.label :główny_trener_prowadzący%><br />
-	    <%= p.text_area :leading_head_coach, :rows=>2, :cols=>105%>	   	    
-	  </div>	  
-	  <div class="field">
-	    <%= p.label :drugi_trener%><br />
-	    <%= p.text_area :second_coach, :rows=>2, :cols=>105%>
-	  </div>
-	  <div class="field">
-	    <%= p.label :Trainee_w_ramach_CPD%><br />
-	    <%= p.text_area :cpd_trainee, :rows=>2, :cols=>105%>
-	  </div>
-	  <div class="field">
-	    <%= p.label :Asystenci%><br />
-	    <%= p.text_area :assistants, :rows=>2, :cols=>105%>
-	  </div>
-	</div>
-<%end%>
+
+<%= select_tag "user", options_from_collection_for_select(@users, "id", "name")%>
+
+<%= select_tag "role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
