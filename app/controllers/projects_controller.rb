@@ -69,7 +69,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    @project = Project.find(params[:id])    
+    @project = Project.find(params[:id])
+    @user_project_roles=Hash.new
+    @users=Hash.new
+    @user_project_roles=UserProjectRole.all   
+    @users=User.all 
   end
 
   # POST /projects
@@ -94,6 +98,13 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     params[:project][:game_ids] ||= []
+       
+    #********* user selected from select tag in partial
+    user_project=UserProjectRole.new
+    selected_name = params[:user]
+    selected_user=User.find_by_name(selected_name.to_s)
+    user_project.proj_role = params[:role]
+    user_project.user_id=selected_user.id
    #**************************** 
    
     # user_project=UserProjectRole.new
@@ -107,8 +118,8 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.update_attributes(params[:project])
         remember_changes params[:project], old_project, id
-        format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }        
+        format.json { head :no_content }        
       else
         format.html { render action: "edit" }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -128,8 +139,7 @@ class ProjectsController < ApplicationController
           @field_history.save
           project_instance=Project.find_by_id(project_id)
           proj=String.new          
-          proj="project_instance."+"#{key}"+"_history_id=@field_history.id"
-          
+          proj="project_instance."+"#{key}"+"_history_id=@field_history.id"         
           eval(proj)
           project_instance.save
       end
