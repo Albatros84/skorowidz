@@ -111,8 +111,8 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.update_attributes(params[:project])
         remember_changes params[:project], old_project, id
-        format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }        
+        format.json { head :no_content }        
       else
         format.html { render action: "edit" }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -132,8 +132,7 @@ class ProjectsController < ApplicationController
           @field_history.save
           project_instance=Project.find_by_id(project_id)
           proj=String.new          
-          proj="project_instance."+"#{key}"+"_history_id=@field_history.id"
-          
+          proj="project_instance."+"#{key}"+"_history_id=@field_history.id"         
           eval(proj)
           project_instance.save
       end

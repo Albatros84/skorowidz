@@ -122,20 +122,26 @@
 	  </div>
 	</div>  
 <h3 id="zespol">Zespół </h3>
+<%= #render 
+%><div class="zespol"> 
+ <div class="field">
+	    <%= f.label :główny_trener_prowadzący%><br />
+	    <%= f.text_area :leading_head_coach, :rows=>2, :cols=>105%>	   	    
+	  </div>	  
+	  <div class="field">
+	    <%= f.label :drugi_trener%><br />
+	    <%= f.text_area :second_coach, :rows=>2, :cols=>105%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :Trainee_w_ramach_CPD%><br />
+	    <%= f.text_area :cpd_trainee, :rows=>2, :cols=>105%>
+	  </div>
+	  <div class="field">
+	    <%= f.label :Asystenci%><br />
+	    <%= f.text_area :assistants, :rows=>2, :cols=>105%>
+	  </div>
 
-<%= render "partial"%>
-
-	<div class="zespol">  
-		<%= select("post", "users_id", @users=User.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}) %>
-	    <%= select("post", "role_id", ['trener','asystent', 'reporter','koordynator merytoryczny'], {:include_blank => 'None'}) %>	    
-	    <%= button_to "Add", user_path(:user_name => @users[0], :format=>:js), :remote=>true%>
-	    <select>
-  			<option value="volvo">Volvo</option>
-  			<option value="saab">Saab</option>
-  			<option value="mercedes">Mercedes</option>
-  			<option value="audi">Audi</option>
-		</select>
-		<button type="button">Dodaj</button>		
+	 			
 	</div>
 <h3 id="przedPro"> Przed projektem</h3>
 	<div class="przedPro">
@@ -203,3 +209,4 @@
 	    <%= f.submit %>
 	  </div>
 <% end %>
+
