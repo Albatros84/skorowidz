@@ -17,6 +17,13 @@
 //= require ckeditor/ckeditor
 //= require_tree .
 
+
+$(document).ready(function(){
+  $("#p1").mouseleave(function(){
+    alert("Bye! You now leave p1!");
+  });
+});
+
  $(document).ready(function(){
  	  /*$("div.metr").hide();*/
       $("h3#metr").click(function(){

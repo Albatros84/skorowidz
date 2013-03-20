@@ -69,7 +69,11 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
-    @project = Project.find(params[:id])    
+    @project = Project.find(params[:id])
+    @user_project_roles=Hash.new
+    @users=Hash.new
+    @user_project_roles=UserProjectRole.all   
+    @users=User.all 
   end
 
   # POST /projects
