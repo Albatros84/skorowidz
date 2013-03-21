@@ -1,5 +1,7 @@
 Skorowidz::Application.routes.draw do
 
+  get "temp/myupdate"
+
   get "field_histories/index"
 
   get "field_histories/new"
@@ -36,9 +38,10 @@ Skorowidz::Application.routes.draw do
   get "recover_password" => "users#recover_password", :as =>"recover_password"
   get "sign_up" => "users#new", :as => "sign_up"
   #root :to => 'projects#index'
-  #root :to => "users#new"
   root :to => "sessions#new"
 
+  match ':controller(/:action(/:id))(.:format)'  
+    
       
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -95,5 +98,5 @@ Skorowidz::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+   
 end

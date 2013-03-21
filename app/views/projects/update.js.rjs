@@ -1,4 +1,2 @@
+page.replace_html "div#zespol", :partial=>"projects/partial"
 
-$(".menuitem").click(function(e) {
-  $(".content").load("/projects/edit");
-});

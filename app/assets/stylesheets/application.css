@@ -64,8 +64,6 @@ div.new a{
     color: rgb(0,153,153);
 }
 
-
-
 .name{
 	font-weight: bold;
 	text-decoration: underline;
@@ -75,15 +73,12 @@ div.new{
 	margin: 15px 15px 15px 35px;  	
 }
 
-
-
 h1.title{
-	padding: 15px 15px 15px 35px;
-	
+	padding: 20px 15px 15px 35px;	
 }
 
 table.metryczka{
-	margin: 25px 30px 25px 30px;
+	margin: 25px 30px 25px 5px;
 	padding: 15px 0px 15px 0px;
 	border-top: 3px solid rgb(103,153,253);
 	border-bottom: 3px solid rgb(103,153,253);
@@ -107,10 +102,8 @@ tr td.ind{
 	padding: 14px 5px 14px 5px;
 	border: 1px solid black;
 	overflow: hidden;	
-	max-width: 120px;
+	max-width: 90px;
 }
-
-
 
 td.del a{
 	color: rgb(237,32,36);

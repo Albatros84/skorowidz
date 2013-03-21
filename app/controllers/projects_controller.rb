@@ -28,11 +28,8 @@ class ProjectsController < ApplicationController
   end
   
   
-  def add_user_to_project
-    respond_to do |format|
-      format.html {redirect_to root_url}
-      format.js      
-    end
+  def myupdate
+    redirect_to root_url
   end
     
   # GET /projects/1
@@ -129,39 +126,28 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.json
   def update
-    @project = Project.find(params[:id])
-    params[:project][:game_ids] ||= []
-       
-    #********* user selected from select tag in partial
-    
-    #user_project.user_id=selected_user.id
-   #**************************** 
-    
-    # user_project=UserProjectRole.new
-    # user_project.user_id=@user.id
-    # user_project.project_id=@project.id
-    
+     @project = Project.find(params[:id])
+     params[:project][:game_ids] ||= []
   #******************************
-    old_project = Project.find(params[:id])
-    id=old_project.id
-    params[:project][:game_ids] ||= []
-    respond_to do |format|
-      if @project.update_attributes(params[:project])
-        @user_project=UserProjectRole.new
-        selected_user = params[:users]
-        @user_project.proj_role = params[:proj_role]
-        @user_project.project_id=@project.id
-        @user_project.user_id=selected_user
-        @user_project.save
-        remember_changes params[:project], old_project, id
-      #  format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }        
-      #  format.json { head :no_content }
-        format.js
-        format.json { render json: @project, status: :created, location: @project }               
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+     old_project = Project.find(params[:id])
+     id=old_project.id
+     params[:project][:game_ids] ||= []
+     respond_to do |format|
+       if @project.update_attributes(params[:project])
+         @user_project=UserProjectRole.new
+         selected_user = params[:users]
+         @user_project.proj_role = params[:proj_role]
+         @user_project.project_id=@project.id
+         @user_project.user_id=selected_user
+         @user_project.save
+         remember_changes params[:project], old_project, id
+         format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }                          
+         #format.js { head :no_content }        
+         #format.js { render js: @project, status: :created, location: @project }               
+       else
+         format.html { render action: "edit" }
+         format.json { render json: @project.errors, status: :unprocessable_entity }
+       end
     end
   end
   

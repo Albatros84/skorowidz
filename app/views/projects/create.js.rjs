@@ -1,10 +1,5 @@
 
-$('#content').html('<%= escape_javascript (render :partial => "content_post") %>')
-
-$('.remote_button').bind('ajax:success', function(){
-  alert("Success!");
-});
-
-$("partial").update("<%= escape_javascript(render('partial_page')) %>")
+document.write("<h1>whis ajax heading</h1>")
 
 page.replace_html('project', render(@project))
+
