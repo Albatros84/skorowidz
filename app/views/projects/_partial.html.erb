@@ -1,2 +1,11 @@
 <%= select_tag "users", options_from_collection_for_select(@users, "id", "name")%>
 <%= select_tag "proj_role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
+
+<%=# button_to "Dodaj użytkownika", add_user_to_project_path(:project_id => @project, :format=>:js), :remote=>true
+ %>
+
+<%= button_to "Dodaj", :action => "update", :remote => true, :form => { "data-type" => "json" }, :class=>"remote_button" %>
+
+<div id="content">
+	
+	</div>

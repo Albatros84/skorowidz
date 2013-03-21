@@ -1,0 +1,4 @@
+
+$(".menuitem").click(function(e) {
+  $(".content").load("/projects/edit");
+});

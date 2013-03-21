@@ -26,7 +26,15 @@ class ProjectsController < ApplicationController
       format.json { render json: @projects }
     end
   end
-
+  
+  
+  def add_user_to_project
+    respond_to do |format|
+      format.html {redirect_to root_url}
+      format.js      
+    end
+  end
+    
   # GET /projects/1
   # GET /projects/1.json
   
@@ -146,8 +154,10 @@ class ProjectsController < ApplicationController
         @user_project.user_id=selected_user
         @user_project.save
         remember_changes params[:project], old_project, id
-        format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }        
-        format.json { head :no_content }        
+      #  format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }        
+      #  format.json { head :no_content }
+        format.js
+        format.json { render json: @project, status: :created, location: @project }               
       else
         format.html { render action: "edit" }
         format.json { render json: @project.errors, status: :unprocessable_entity }
