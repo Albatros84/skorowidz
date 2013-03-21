@@ -123,10 +123,6 @@
 	</div>  
 <h3 id="zespol">Zespół </h3>
 
-
-<%=# render :partial=>"partial"
-%>
-
 <div class="zespol"> 
  <div class="field">
 	    <%= f.label :główny_trener_prowadzący%><br />
@@ -214,11 +210,5 @@
 	  </div>
 <% end %>
 
-<%= select_tag "users", options_from_collection_for_select(@users, "id", "name")%>
-<%= select_tag "proj_role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
-<%=# button_to "Dodaj", :action => "myupdate" ,:remote => true, :form => { "data-type" => "json" }, :form_class=>"remote_button"
-%>
-<%= button_to "update", {:controller => "projects", :action => "update", :page=>@current_page }, :method=>:get, :remote => true,:id => 'lnk_more' %>
-<%= #render :partial=>"partial"
- %>
+
 

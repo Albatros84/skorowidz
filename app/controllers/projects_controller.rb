@@ -29,7 +29,9 @@ class ProjectsController < ApplicationController
   
   
   def myupdate
-    redirect_to root_url
+    respond_to do |format|
+    format.json
+    end
   end
     
   # GET /projects/1
@@ -49,7 +51,12 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @users_from_history=User.all
     @user_project_roles=UserProjectRole.find_all_by_project_id(@project.id)
-     
+    #**********
+    @user_project_roles=Hash.new
+    @users=Hash.new
+    @user_project_roles=UserProjectRole.all   
+    @users=User.all 
+    #*************************
      unless @user_project_roles.empty?
         @user_project_roles.each do |upr|
         @user_ids<<upr.user_id
@@ -142,7 +149,7 @@ class ProjectsController < ApplicationController
          @user_project.save
          remember_changes params[:project], old_project, id
          format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }                          
-         #format.js { head :no_content }        
+ 
          #format.js { render js: @project, status: :created, location: @project }               
        else
          format.html { render action: "edit" }

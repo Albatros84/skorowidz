@@ -222,6 +222,14 @@
 
 <h3 id="zespol">Zespół </h3>
 <div class="zespol">
+	
+<%= select_tag "users", options_from_collection_for_select(@users, "id", "name")%>
+<%= select_tag "proj_role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
+<%=# button_to "Dodaj", :action => "myupdate" ,:remote => true, :form => { "data-type" => "json" }, :form_class=>"remote_button"
+%>
+<%= button_to "myupdate", {:controller => "projects", :action => "myupdate" }, :remote => true,:id => 'lnk_more' %>
+<%= #render :partial=>"partial"
+ %>
 
   <% @user_names.each do |us| %>
   <%= us.name%>
