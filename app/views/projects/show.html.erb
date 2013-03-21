@@ -222,6 +222,14 @@
 
 <h3 id="zespol">Zespół </h3>
 <div class="zespol">
+
+  <% @user_names.each do |us| %>
+  <%= us.name%>
+  <%end %>
+  <% @user_project_roles.each do |upr| %>
+  <%= upr.proj_role  %>
+  <% end %>
+  
 <table class="tabl">
 	<tr>
       <td class="head"><b>Główny trener prowadzący:</b></td>

@@ -38,8 +38,22 @@ class ProjectsController < ApplicationController
   def show  
     @field_hist_arr=Hash.new
     @users_from_history=Hash.new 
+    @user_project_roles=Hash.new
+    @user_ids=Array.new
+    @user_names=Array.new
     @project = Project.find(params[:id])
     @users_from_history=User.all
+    @user_project_roles=UserProjectRole.find_all_by_project_id(@project.id)
+     
+     unless @user_project_roles.empty?
+        @user_project_roles.each do |upr|
+        @user_ids<<upr.user_id
+         end
+      end
+         
+         @user_ids.each do |id|
+         @user_names<<User.find(id)
+         end
                      
            unless FieldHistory.minimum("id")==nil
         FieldHistory.minimum("id").upto(FieldHistory.maximum("id")){|i|  
