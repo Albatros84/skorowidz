@@ -60,6 +60,11 @@ class ProjectsController < ApplicationController
   # GET /projects/new.json
   def new
     @project = Project.new
+    #******partial
+    @user_project_roles=Hash.new
+    @users=Hash.new
+    @user_project_roles=UserProjectRole.all   
+    @users=User.all 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -70,6 +75,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    #******partial
     @user_project_roles=Hash.new
     @users=Hash.new
     @user_project_roles=UserProjectRole.all   
@@ -81,9 +87,14 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
     params[:project][:game_ids] ||= []
-
     respond_to do |format|
       if @project.save
+       @user_project=UserProjectRole.new
+       selected_user = params[:users]
+       @user_project.proj_role = params[:proj_role]
+       @user_project.project_id=@project.id
+       @user_project.user_id=selected_user
+       @user_project.save     
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
@@ -100,13 +111,10 @@ class ProjectsController < ApplicationController
     params[:project][:game_ids] ||= []
        
     #********* user selected from select tag in partial
-    user_project=UserProjectRole.new
-    selected_name = params[:user]
-    selected_user=User.find_by_name(selected_name.to_s)
-    user_project.proj_role = params[:role]
-    user_project.user_id=selected_user.id
+    
+    #user_project.user_id=selected_user.id
    #**************************** 
-   
+    
     # user_project=UserProjectRole.new
     # user_project.user_id=@user.id
     # user_project.project_id=@project.id
@@ -117,6 +125,12 @@ class ProjectsController < ApplicationController
     params[:project][:game_ids] ||= []
     respond_to do |format|
       if @project.update_attributes(params[:project])
+        @user_project=UserProjectRole.new
+        selected_user = params[:users]
+        @user_project.proj_role = params[:proj_role]
+        @user_project.project_id=@project.id
+        @user_project.user_id=selected_user
+        @user_project.save
         remember_changes params[:project], old_project, id
         format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }        
         format.json { head :no_content }        

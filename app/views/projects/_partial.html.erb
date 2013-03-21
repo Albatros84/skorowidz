@@ -1,6 +1,2 @@
- To pochodzi z partiala, a reszta strony działa jak należy
- 
-
-<%= select_tag "user", options_from_collection_for_select(@users, "id", "name")%>
-
-<%= select_tag "role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
+<%= select_tag "users", options_from_collection_for_select(@users, "id", "name")%>
+<%= select_tag "proj_role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
