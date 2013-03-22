@@ -29,8 +29,7 @@ class ProjectsController < ApplicationController
   
   
     def myupdate   
-      set_project_users
-      
+      set_project_users      
       @field_hist_arr=Hash.new
       @users_from_history=Hash.new 
       @user_project_roles=Hash.new
