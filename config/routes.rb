@@ -1,5 +1,8 @@
 Skorowidz::Application.routes.draw do
 
+  resources :project_users
+
+
   get "temp/myupdate"
 
   get "field_histories/index"

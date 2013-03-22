@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  proj_role: MyString
+  user_id: 1
+  project_id: 1
+
+two:
+  proj_role: MyString
+  user_id: 1
+  project_id: 1

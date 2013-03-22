@@ -225,18 +225,12 @@
 	
 <%= select_tag "users", options_from_collection_for_select(@users, "id", "name")%>
 <%= select_tag "proj_role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
-<%=# button_to "Dodaj", :action => "myupdate" ,:remote => true, :form => { "data-type" => "json" }, :form_class=>"remote_button"
-%>
-<%= button_to "myupdate", {:controller => "projects", :action => "myupdate" }, :remote => true,:id => 'lnk_more' %>
-<%= #render :partial=>"partial"
- %>
+<%= button_to "Create", :action => "create",:controller=>:user_project_roles ,:remote => true, :form => { "data-type" => "json" }, :form_class=>"remote_button"%>
 
-  <% @user_names.each do |us| %>
-  <%= us.name%>
-  <%end %>
-  <% @user_project_roles.each do |upr| %>
-  <%= upr.proj_role  %>
-  <% end %>
+<%= button_to "myupdate", {:controller => "projects", :action => "myupdate" }, :remote => true,:id => 'lnk_more' %>
+<%= render :partial=>"partial"%>
+
+  
   
 <table class="tabl">
 	<tr>

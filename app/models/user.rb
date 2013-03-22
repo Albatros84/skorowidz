@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   has_many :field_histories
   has_many :projects, :through=>:field_histories
   
-  has_many :user_project_roles
-  has_many :projects, :through=>:user_project_roles
+  has_many :project_users
+  has_many :projects, :through=>:project_users
   
   before_create { generate_token(:auth_token) }
  

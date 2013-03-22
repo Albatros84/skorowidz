@@ -2,8 +2,8 @@
 # coding: utf-8
 class Project < ActiveRecord::Base
    
-  has_many :user_project_roles
-  has_many :users, :through=>:user_project_roles
+  has_many :project_users
+  has_many :users, :through=>:project_users
   
   has_many :field_histories
   has_many :users, :through=>:field_histories

@@ -1,1 +1,6 @@
-to jest mój partial
+<% @user_names.each do |us| %>
+  <%= us.name%>
+  <%end %>
+  <% @user_project_roles.each do |upr| %>
+  <%= upr.proj_role  %>
+  <% end %>
