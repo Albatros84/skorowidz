@@ -1,6 +1,15 @@
+
+
+<table>
+	<tr>
 <% @user_names.each do |us| %>
-  <%= us.name%>
+  <td><%= us.name%></td>
   <%end %>
+  	</tr>
+  
+  	<tr>
   <% @user_project_roles.each do |upr| %>
-  <%= upr.proj_role  %>
+  <td><%= upr.proj_role%></td>
   <% end %>
+  </tr>
+</table>  	  

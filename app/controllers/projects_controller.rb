@@ -28,18 +28,57 @@ class ProjectsController < ApplicationController
   end
   
   
-  def myupdate
-    respond_to do |format|
-    format.js
-    end
-  end
+    def myupdate   
+      @field_hist_arr=Hash.new
+    @users_from_history=Hash.new 
+    @user_project_roles=Hash.new
+    @user_ids=Array.new
+    @user_names=Array.new
+    @project = Project.find(params[:project_id])
+    @users_from_history=User.all
+    @user_project_roles=ProjectUser.find_all_by_project_id(@project.id)
+    #**********
+    @user_project_roles=Hash.new
+    @users=Hash.new
+    @user_project_roles=ProjectUser.all   
+    @users=User.all 
+    
+       unless @user_project_roles.empty?
+        @user_project_roles.each do |upr|
+        @user_ids<<upr.user_id
+         end
+      end         
+         @user_ids.each do |id|
+          unless id.nil?
+              @user_names<<User.find(id)        
+          end
+         end
+     #***** powyżej jest przeniesione z show 
+      
+      
+      set_project_users
+      respond_to do |format|  
+        format.js
+      end
+   end
+  
+   def set_project_users       
+         @user_project=ProjectUser.new
+         selected_user = params[:users]
+         @user_project.proj_role = params[:proj_role]
+         @user_project.project_id=params[:project_id]
+         @user_project.user_id=selected_user
+         @user_project.save
+   end
     
   # GET /projects/1
   # GET /projects/1.json
   
+  
+  
+  
   def color
     @users_from_history=User.all
-    
   end
   
   def show  
@@ -50,11 +89,11 @@ class ProjectsController < ApplicationController
     @user_names=Array.new
     @project = Project.find(params[:id])
     @users_from_history=User.all
-    @user_project_roles=UserProjectRole.find_all_by_project_id(@project.id)
+    @user_project_roles=ProjectUser.find_all_by_project_id(@project.id)
     #**********
     @user_project_roles=Hash.new
     @users=Hash.new
-    @user_project_roles=UserProjectRole.all   
+    @user_project_roles=ProjectUser.all   
     @users=User.all 
     #*************************
      unless @user_project_roles.empty?
@@ -64,7 +103,9 @@ class ProjectsController < ApplicationController
       end
          
          @user_ids.each do |id|
-         @user_names<<User.find(id)
+          unless id.nil?
+              @user_names<<User.find(id)        
+          end
          end
                      
            unless FieldHistory.minimum("id")==nil
@@ -103,9 +144,33 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     #******partial
     @user_project_roles=Hash.new
-    @users=Hash.new
-    @user_project_roles=UserProjectRole.all   
+    @user_names=Hash.new
+    @user_project_roles=ProjectUser.all   
     @users=User.all 
+    @field_hist_arr=Hash.new
+    @users_from_history=Hash.new 
+    @user_ids=Array.new
+    @user_names=Array.new
+    @project = Project.find(params[:id])
+    @users_from_history=User.all
+    @user_project_roles=ProjectUser.find_all_by_project_id(@project.id)
+    #**********
+    @user_project_roles=Hash.new
+    @users=Hash.new
+    @user_project_roles=ProjectUser.all   
+    @users=User.all 
+    #*************************
+     unless @user_project_roles.empty?
+        @user_project_roles.each do |upr|
+        @user_ids<<upr.user_id
+         end
+      end
+         
+         @user_ids.each do |id|
+          unless id.nil?
+              @user_names<<User.find(id)        
+          end
+         end
   end
 
   # POST /projects
@@ -115,7 +180,7 @@ class ProjectsController < ApplicationController
     params[:project][:game_ids] ||= []
     respond_to do |format|
       if @project.save
-       @user_project=UserProjectRole.new
+       @user_project=ProjectUser.new
        selected_user = params[:users]
        @user_project.proj_role = params[:proj_role]
        @user_project.project_id=@project.id
@@ -129,6 +194,8 @@ class ProjectsController < ApplicationController
       end
     end
   end
+  
+ 
 
   # PUT /projects/1
   # PUT /projects/1.json
@@ -141,16 +208,11 @@ class ProjectsController < ApplicationController
      params[:project][:game_ids] ||= []
      respond_to do |format|
        if @project.update_attributes(params[:project])
-         @user_project=UserProjectRole.new
-         selected_user = params[:users]
-         @user_project.proj_role = params[:proj_role]
-         @user_project.project_id=@project.id
-         @user_project.user_id=selected_user
-         @user_project.save
+         
          remember_changes params[:project], old_project, id
          format.html { redirect_to projects_url, notice: 'Project was successfully updated.' }                          
- 
-         #format.js { render js: @project, status: :created, location: @project }               
+          format.js
+         format.js { render js: @project, status: :created, location: @project }               
        else
          format.html { render action: "edit" }
          format.json { render json: @project.errors, status: :unprocessable_entity }

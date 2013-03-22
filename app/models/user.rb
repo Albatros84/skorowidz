@@ -1,6 +1,7 @@
 #!/usr/local/bin/ruby
 # coding: utf-8
 class User < ActiveRecord::Base
+  after_destroy :ensure_an_admin_remains #to jest callback
   has_many :field_histories
   has_many :projects, :through=>:field_histories
   
@@ -25,6 +26,12 @@ class User < ActiveRecord::Base
   validates_format_of :email, :with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i, :on => :create
   validates_inclusion_of :role, :in => ["admin", "trener","biuro", "sprzedaż"]
     
+
+  def ensure_an_admin_remains
+    if User.count.zero?
+      raise "Can't delete last user"
+    end    
+  end
 
     #def self.authenticate(email, password)
   def authenticate(email, password)
