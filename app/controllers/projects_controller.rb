@@ -29,34 +29,34 @@ class ProjectsController < ApplicationController
   
   
     def myupdate   
-      @field_hist_arr=Hash.new
-    @users_from_history=Hash.new 
-    @user_project_roles=Hash.new
-    @user_ids=Array.new
-    @user_names=Array.new
-    @project = Project.find(params[:project_id])
-    @users_from_history=User.all
-    @user_project_roles=ProjectUser.find_all_by_project_id(@project.id)
-    #**********
-    @user_project_roles=Hash.new
-    @users=Hash.new
-    @user_project_roles=ProjectUser.all   
-    @users=User.all 
-    
-       unless @user_project_roles.empty?
-        @user_project_roles.each do |upr|
-        @user_ids<<upr.user_id
-         end
-      end         
-         @user_ids.each do |id|
-          unless id.nil?
-              @user_names<<User.find(id)        
-          end
-         end
-     #***** powyżej jest przeniesione z show 
-      
-      
       set_project_users
+      
+      @field_hist_arr=Hash.new
+      @users_from_history=Hash.new 
+      @user_project_roles=Hash.new
+      @user_ids=Array.new
+      @user_names=Array.new
+      @project = Project.find(params[:project_id])
+      @users_from_history=User.all
+      @user_project_roles=ProjectUser.find_all_by_project_id(@project.id)
+      #**********
+      @user_project_roles=Hash.new
+      @users=Hash.new
+      @user_project_roles=ProjectUser.all   
+      @users=User.all    
+      
+         unless @user_project_roles.empty?
+          @user_project_roles.each do |upr|
+          @user_ids<<upr.user_id
+           end
+        end         
+           @user_ids.each do |id|
+            unless id.nil?
+                @user_names<<User.find(id)        
+            end
+           end
+     #***** powyżej jest przeniesione z show       
+      
       respond_to do |format|  
         format.js
       end
@@ -73,10 +73,7 @@ class ProjectsController < ApplicationController
     
   # GET /projects/1
   # GET /projects/1.json
-  
-  
-  
-  
+   
   def color
     @users_from_history=User.all
   end

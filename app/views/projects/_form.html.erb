@@ -120,18 +120,8 @@
 	    <%= f.label :pozostałe_informacje_np_rodzaj_raportu%><br />
 	    <%= f.text_area :other_information, :rows=>2, :cols=>105%>
 	  </div>
-	</div>  
-<h3 id="zespol">Zespół </h3>
-<%= form_tag('myupdate', :remote => true) do%>	
-<%= hidden_field_tag(:project_id, @project.id) %>
-<%= select_tag "users", options_from_collection_for_select(@users, "id", "name")%>
-<%= select_tag "proj_role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
-<%= button_to "Dodaj uczestnika", {:controller => "projects", :action => "myupdate"}, :remote => true,:id => @project.id %>
-<%end%>
-<div id="part">
-	<%= render :partial=>"partial"%>
-</div>
-
+	</div>
+	
 <div class="zespol"> 
  <div class="field">
 	    <%= f.label :główny_trener_prowadzący%><br />
@@ -171,7 +161,7 @@
 	    <%= f.text_area :invitation_for_participants, :rows=>2, :cols=>105, :class => 'ckeditor'%>
 	  </div>
 	</div>  
-<h3 id="poSpotkaniu"> Po spotkaniu </h3>
+<h3 id="poSpotkaniu"> Po projekcie </h3>
 	<div class="poSpotkaniu">	  
 	  <div class="field">
 	    <%= f.label :cel_i_pozostałe_oczekiwania_klienta%> (w jakim stopniu zostały zrealizowane, jakie były sytuacje trudne)<br />
@@ -219,5 +209,15 @@
 	  </div>
 <% end %>
 
+	<h3>Zespół </h3>
+	<%= form_tag('myupdate', :remote => true) do%>	
+	<%= hidden_field_tag(:project_id, @project.id) %>
+	<%= select_tag "users", options_from_collection_for_select(@users, "id", "name")%>
+	<%= select_tag "proj_role", options_for_select([ "trener", "asystent", "koordynator merytoryczny", "reporter" ]) %>
+	<%= button_to "Dodaj uczestnika", {:controller => "projects", :action => "myupdate"}, :remote => true,:id => @project.id %>
+	<%end%>
+	<div id="part">
+		<%= render :partial=>"partial"%>
+	</div>
 
 
