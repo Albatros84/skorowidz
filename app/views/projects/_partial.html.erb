@@ -1,13 +1,13 @@
 <table>
-	<tr>
-	<% @user_names.each do |us| %>
-  <td><%= us.name%></td>
-  <%end %>
-  	</tr>
-  
-  	<tr>
+  	
+  	<%unless @user_project_roles.nil?%>
   <% @user_project_roles.each do |upr| %>
+  <tr>
+  	<% unless upr.user.nil?%>
+   <td><%= upr.user.name%></td>
   <td><%= upr.proj_role%></td>
+  	<%end%>
+   </tr>
   <% end %>
-  </tr>
+ <% end %>
 </table>  
