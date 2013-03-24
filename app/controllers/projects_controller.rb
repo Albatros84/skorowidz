@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all    
+    @projects = Project.all(:order => "updated_at DESC")   
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
