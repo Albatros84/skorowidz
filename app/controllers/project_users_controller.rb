@@ -1,4 +1,5 @@
 class ProjectUsersController < ApplicationController
+  before_filter :require_admin_login
   # GET /project_users
   # GET /project_users.json
   def index
